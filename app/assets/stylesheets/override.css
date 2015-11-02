@@ -1,0 +1,62 @@
+/* Landing first section */
+#main-image {
+  padding-top: 80px;
+  padding-bottom: 200px;
+  background-image: url("https://s3-us-west-2.amazonaws.com/feedbee/people+in+street_Fotor.jpg");
+  background-size: cover;
+}
+
+#search {
+  padding-left: 50px;
+  padding-bottom: 150px;
+}
+
+#entry {
+  font-size: 2em;
+}
+
+#main-line {
+  font-size: 3em;
+}
+
+#main-divider {
+  border-top: 5px solid rgba(255, 255, 255, 0.8);
+}
+
+#feedbee {
+  margin-top: 20px;
+}
+
+/* Landing second section */
+
+#explanation {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-top: 70px;
+  background-image: linear-gradient(-180deg, #A6B7F6 0%, #6D80EA 100%);
+}
+
+#exp-pad {
+  padding-left: 70px;
+}
+
+.reg-text, .opinion, .action {
+  color: white;
+}
+
+.reg-text {
+  font-size: 2em;
+}
+
+.opinion {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 2.6em;
+}
+
+.action {
+  font-size: 3.4em;
+  padding-bottom: 20px;
+}
+
+
