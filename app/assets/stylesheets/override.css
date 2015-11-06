@@ -29,49 +29,10 @@
 
 /* Landing second section */
 
-#explanation {
+#how-to {
   margin-top: 30px;
   margin-bottom: 30px;
   padding-top: 70px;
-  background-image: linear-gradient(-180deg, #A6B7F6 0%, #6D80EA 100%);
-}
-
-#exp-pad {
-  padding-left: 70px;
-}
-
-.reg-text, .opinion, .action {
-  color: white;
-}
-
-.reg-text {
-  font-size: 2em;
-}
-
-.opinion {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-size: 2.6em;
-}
-
-#stuff {
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-
-.action {
-  font-size: 3.4em;
-  padding-bottom: 20px;
-}
-
-.vert-center {
-  padding-top: 35px;
-}
-
-
-/* Landing third section */
-
-.how-to {
   padding-left: 30px;
   padding-right: 30px;
 }
