@@ -94,3 +94,29 @@
   padding-left: 50px;
   padding-bottom: 60px;
 }
+
+#standard-comment {
+  padding-right: 50px;
+  padding-left: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+#text-container {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#comment-text {
+  font-size: 1.2em;
+}
+
+.inline {
+  display: inline;
+}
+
+.num {
+  padding-right: 20px;
+}
