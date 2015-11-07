@@ -1,21 +1,37 @@
 <div class="ui grid">
-  <div id="sidebar" class="four wide column">
-  </div><!--Sidebar-->
+    <div id="sidebar" class="four wide column">
+    </div><!--Sidebar-->
 
     <div id="right-section" class="twelve wide column">
-        <div class="ui grid">
-            <div class="sixteen wide column">
-                <div id="search" class="ui grid"><!--Search-->
+        <div class="ui centered grid">
+            <div class="sixteen wide column"><!--Search-->
+                <div id="page-search" class="ui grid">
                     <div class="seven wide column">
                         <div class="ui fluid action input">
                           <input type="text" placeholder="Search for something else...">
                             <div class="ui button">Go</div>
                         </div>
                     </div>
-                </div><!--Search-->
-            </div>
-            <div class="sixteen wide column">
-            </div>
-        </div>
-      </div><!--Right Section -->
+                </div>
+            </div><!--Search-->
+            <div class="ten wide column"><!--New Comment -->
+                <div id='new-comment' class="ui fluid left icon input">
+                    <input type="text" placeholder="Add a new comment">
+                    <i class="plus icon"></i>
+                    <div class="ui button">Submit</div>
+                </div>
+            </div><!--New Comment -->
+            <div id="comments-container" class="sixteen wide column"><!--container-->
+                <div class="ui segment">
+                    <div class="ui centered grid">
+                        <% 5.times do %>
+                        <div class="sixteen wide column">
+                          <h3>Some stuff</h3>
+                        </div>
+                        <% end %>
+                    </div>
+                </div>
+            </div><!--container-->
+        </div><!-- Grid -->
+    </div><!--Right Section -->
 </div>

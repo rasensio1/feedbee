@@ -77,5 +77,20 @@
 /* Place Show right section */
 
 #right-section {
-  padding-top: 30px;
+  padding-top: 50px;
+}
+
+#page-search {
+  padding-left: 50px;
+  padding-bottom: 50px;
+}
+
+#new-comment {
+  padding-bottom: 0px;
+}
+
+#comments-container {
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-bottom: 60px;
 }
