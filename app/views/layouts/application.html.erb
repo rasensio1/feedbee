@@ -12,6 +12,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 </head>
 <body>
+<div class="ui fixed inverted large menu">
+    <a class="large item">FeedBee</a>
+    <div class="right menu">
+      <% if current_user %>
+        <%= link_to "Hello, #{current_user.name}", "#", class: "item" %>
+        <%= link_to "Log Out", logout_path, class: "item" %>
+      <% else %>
+        <%= link_to "Log In with Facebook", login_path, class: "item" %>
+        <a class="item">Sign Up</a>
+      <% end %>
+    </div>
+</div>
 
 <%= yield %>
 
