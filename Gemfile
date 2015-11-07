@@ -16,6 +16,8 @@ gem 'less-rails-semantic_ui'
 gem 'autoprefixer-rails'
 gem 'therubyracer', '~> 0.12.2'
 
+gem 'omniauth-facebook'
+
 group :development, :test do
   gem 'byebug'
 end
