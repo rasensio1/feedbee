@@ -16,5 +16,7 @@
 !/log/.keep
 /tmp
 
+capybara*
+
 # Ignore application configuration
 /config/application.yml
