@@ -17,6 +17,7 @@ gem 'autoprefixer-rails'
 gem 'therubyracer', '~> 0.12.2'
 
 gem 'omniauth-facebook'
+gem "figaro"
 
 group :development, :test do
   gem 'byebug'
