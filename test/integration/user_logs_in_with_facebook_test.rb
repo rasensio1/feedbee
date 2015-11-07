@@ -21,14 +21,16 @@ class UserLogsInWithTwitterTest < ActionDispatch::IntegrationTest
     })
   end
 
-  test "logging in" do
+  test "logging in and out" do
     visit "/"
     assert_equal 200, page.status_code
 
     click_link "Log In with Facebook"
     assert_equal '/', current_path
-
-    save_and_open_page
     assert page.has_content?("Ryan Asensio")
+
+    click_link "Log Out"
+    assert_equal '/', current_path
+    refute page.has_content?("Ryan Asensio")
   end
 end
