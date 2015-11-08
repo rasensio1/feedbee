@@ -1,3 +1,8 @@
+/* Navbar */
+#nav-search {
+  width: 24em;
+}
+
 /* Landing first section */
 #main-image {
   padding-top: 80px;
@@ -66,4 +71,124 @@
 
 .check-it {
   margin-top: 30px;
+}
+
+/* Place Show left section */
+#sidebar {
+  background-image: linear-gradient(-180deg, rgba(102,137,242,0.73) 0%, rgba(54,81,225,0.73) 100%);
+  box-shadow: 2px 1px 4px 0px rgba(0,0,0,0.50);
+}
+
+#sidebar-grid {
+  padding-left: 25px;
+}
+
+#picture {
+  margin-top: 3em;
+  border: 10px solid white;
+}
+
+#side-title {
+  font-size: 1.5em;
+}
+
+#map {
+  margin-top: 1em;
+  border: 5px solid white;
+}
+
+#directions {
+  color: white;
+  font-size: 1.5em;
+}
+
+/* Place Show right section */
+
+#right-section {
+  padding-top: 25px;
+  /* Rectangle 2: */
+  background-image: linear-gradient(0deg, #F9F9F9 67%, #DDD 100%);
+}
+
+#page-search {
+  padding-right: 10px;
+  padding-bottom: 20px;
+}
+
+.icon {
+  padding-bottom: 0px;
+}
+
+#title-container {
+  padding-top: 60px;
+}
+
+#title {
+  font-size: 3em;
+}
+
+#action-container {
+  padding-bottom: 30px;
+}
+
+#new-comment {
+  padding-bottom: 0px;
+}
+
+#comment-form {
+  padding-left: 50px;
+  padding-bottom: 10px;
+}
+
+/* Comment Partial*/
+
+#comments-container {
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-bottom: 40px;
+}
+
+#shadow-container {
+  background: #FFFFFF;
+  border: 1px solid #979797;
+}
+
+#scroll {
+  overflow: auto;
+  height: 390px;
+}
+
+#standard-comment {
+  padding-right: 50px;
+  padding-left: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+#comment-container {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#text-container {
+  height: 3em;
+  padding-top: 0.7em;
+  padding-bottom: 0px;
+  background: rgba(117,255,124,0.46);
+  box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.50);
+  border-radius: 8px;
+}
+
+#comment-text {
+  font-size: 1.2em;
+}
+
+.inline {
+  display: inline;
+}
+
+.num {
+  padding-right: 20px;
 }

@@ -11,7 +11,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 </head>
-<body>
+<body class="fullscreen">
+<div class="ui fixed inverted large menu">
+    <a class="large item">FeedBee</a>
+    <div class="right menu">
+        <div id='nav-search' class = 'item'>
+            <div class="ui icon mini input">
+                <input type="text" placeholder="Search for something!">
+                <i id="bot-pad-zero" class="search icon"></i>
+            </div>
+        </div>
+      <% if current_user %>
+        <%= link_to "Hello, #{current_user.name}", "#", class: "item" %>
+        <%= link_to "Log Out", logout_path, class: "item" %>
+      <% else %>
+        <%= link_to "Log In with Facebook", login_path, class: "item" %>
+        <a class="item">Sign Up</a>
+      <% end %>
+    </div>
+</div>
 
 <%= yield %>
 
