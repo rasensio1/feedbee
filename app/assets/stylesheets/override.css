@@ -1,3 +1,8 @@
+/* Navbar */
+#nav-search {
+  width: 24em;
+}
+
 /* Landing first section */
 #main-image {
   padding-top: 80px;
@@ -74,26 +79,50 @@
   box-shadow: 2px 1px 4px 0px rgba(0,0,0,0.50);
 }
 
+#sidebar-grid {
+  padding-left: 25px;
+}
+
 #picture {
   margin-top: 3em;
   border: 10px solid white;
 }
 
-
+#side-title {
+  font-size: 1.5em;
+}
 
 /* Place Show right section */
 
 #right-section {
-  padding-top: 50px;
+  padding-top: 25px;
 }
 
 #page-search {
-  padding-left: 50px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+}
+
+.icon {
+  padding-bottom: 0px;
+}
+
+#title-container {
+  padding-top: 50px;
   padding-bottom: 50px;
+}
+
+#title {
+  font-size: 3em;
 }
 
 #new-comment {
   padding-bottom: 0px;
+}
+
+#comment-form {
+  padding-left: 50px;
+  padding-bottom: 20px;
 }
 
 /* Comment Partial*/

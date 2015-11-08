@@ -15,6 +15,12 @@
 <div class="ui fixed inverted large menu">
     <a class="large item">FeedBee</a>
     <div class="right menu">
+        <div id='nav-search' class = 'item'>
+            <div class="ui icon mini input">
+                <input type="text" placeholder="Search for something!">
+                <i id="bot-pad-zero" class="search icon"></i>
+            </div>
+        </div>
       <% if current_user %>
         <%= link_to "Hello, #{current_user.name}", "#", class: "item" %>
         <%= link_to "Log Out", logout_path, class: "item" %>
