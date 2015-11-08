@@ -1,5 +1,12 @@
 <div class="ui grid">
-    <div id="sidebar" class="four wide column">
+    <div id="sidebar" class="four wide column"><!--Sidebar-->
+        <div class="ui grid">
+            <div class="sixteen wide center aligned column">
+                <div id='picture' class="ui small rounded image">
+                    <img src="https://s3-us-west-2.amazonaws.com/feedbee/EHdy1GyV.png">
+                </div>
+            </div>
+        </div>
     </div><!--Sidebar-->
 
     <div id="right-section" class="twelve wide column">
@@ -22,9 +29,9 @@
                 </div>
             </div><!--New Comment -->
             <div id="comments-container" class="sixteen wide column"><!--container-->
-                <div class="ui segment">
-                    <div class="ui centered grid">
-                        <% 5.times do %>
+                <div id="shadow-container" class="ui segment">
+                    <div id="scroll" class="ui centered grid">
+                        <% 15.times do %>
                         <%= render "comments/standard" %>
                         <% end %>
                     </div>
