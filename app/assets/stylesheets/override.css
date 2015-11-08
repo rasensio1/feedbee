@@ -106,6 +106,8 @@
 
 #right-section {
   padding-top: 25px;
+  /* Rectangle 2: */
+  background-image: linear-gradient(0deg, #F9F9F9 67%, #DDD 100%);
 }
 
 #page-search {
@@ -153,7 +155,7 @@
 
 #scroll {
   overflow: auto;
-  height: 400px;
+  height: 390px;
 }
 
 #standard-comment {
