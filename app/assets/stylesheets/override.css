@@ -128,16 +128,14 @@
 /* Comment Partial*/
 
 #comments-container {
-  padding-right: 20px;
+  padding-right: 50px;
   padding-left: 50px;
   padding-bottom: 60px;
 }
 
 #shadow-container {
-  /* Rectangle 12: */
   background: #FFFFFF;
-  border: 2px solid #979797;
-  box-shadow: inset 0px 1px 6px 0px rgba(0,0,0,0.50);
+  border: 1px solid #979797;
 }
 
 #scroll {
