@@ -3,7 +3,7 @@ $( document ).ready(function() {
     .rating({
       initialRating: 3,
       maxRating: 5
-    })
+    });
 
   $('.ui.rating')
     .rating('disable') ;
