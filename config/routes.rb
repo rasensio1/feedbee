@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/logout', as: :logout, to: 'sessions#destroy'
 
   get 'place', to: 'static#place'
+  get '/autocomplete', to: 'google/autocomplete#index'
 end
