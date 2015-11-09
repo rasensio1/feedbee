@@ -15,6 +15,6 @@ class PlacesController < ApplicationController
 
   def query_for_id(name)
     @client = GooglePlaces::Client.new(ENV['GOOGLE_KEY'])
-    result = @client.spots_by_query(name).first.place_id
+    @client.spots_by_query(name).first.place_id
   end
 end
