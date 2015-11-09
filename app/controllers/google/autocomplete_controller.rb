@@ -2,7 +2,6 @@ class Google::AutocompleteController < ApplicationController
   def index
 
     #OPEN SSL NEEDS TO BE FIXED PROPERLY
-    byebug
 
     @client = GooglePlaces::Client.new(ENV['GOOGLE_KEY'])
     result = @client.predictions_by_input(params[:search])
@@ -11,7 +10,6 @@ class Google::AutocompleteController < ApplicationController
       { name: place.terms.first["value"],
         place_id: place.place_id }
     end
-    byebug
 
     respond_to do |format|
       format.json { render json: predictions }
