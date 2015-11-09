@@ -18,6 +18,7 @@ class Google::AutocompleteController < ApplicationController
       format.json { render json: predictions }
     end
   end
+  
   private
 
   def name(place)
