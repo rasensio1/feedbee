@@ -11,11 +11,7 @@ $( document ).ready(function() {
         url: "/autocomplete.json",
         data: { search: text },
         success: function(raw_places) {
-          console.log(raw_places)
-          debugger;
-
           var content = setValues(raw_places)
-
           $('.ui.search').search({
               source: content
             });
