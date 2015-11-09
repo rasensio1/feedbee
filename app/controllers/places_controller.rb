@@ -8,13 +8,12 @@ class PlacesController < ApplicationController
     @client = GooglePlaces::Client.new(ENV['GOOGLE_KEY'])
     result = @client.spot(place_id)
 
-    @place = Place.from_goole_api(place_id)
+    @reviewable = Place.from_google_api(place_id)
 
+    @place_id= result.place_id
     @name = result.name 
     @image_url = result.icon
-    @rating = ""
-    @place_id= result.place_id
-    @address = ""
+    @rating = result.rating
     @street_number = result.street_number 
     @street = result.street
     @city = result.city
