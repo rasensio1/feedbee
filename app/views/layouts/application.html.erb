@@ -16,21 +16,18 @@
     <a class="large item">FeedBee</a>
 
     <div class="right menu">
-      <%= form_tag("/search", method: "get") do %>
-          <%= label_tag(:q, "Search for:") %>
-          <%= text_field_tag(:q) %>
-          <%= submit_tag("Search") %>
-      <% end %>
-
         <div id='nav-search' class = 'item'>
             <div class="ui search">
                 <div class="ui icon mini input">
-                    <input id="nav-search" class="prompt" type="text" placeholder="Search for something!">
-                    <i id="bot-pad-zero" class="search icon"></i>
+                    <%= form_tag("/show", method: "get") do %>
+                      <input id="nav-search" name="go_to" class="prompt" type="text" placeholder="Search for something!">
+                      <%= submit_tag "Go", class: "ui mini button" %>
+                    <% end %>
                 </div>
                 <div class="results"></div>
             </div>
         </div><!--Search-->
+
       <% if current_user %>
         <%= link_to "Hello, #{current_user.name}", "#", class: "item" %>
         <%= link_to "Log Out", logout_path, class: "item" %>

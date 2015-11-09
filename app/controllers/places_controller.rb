@@ -1,6 +1,7 @@
 class PlacesController < ApplicationController 
 
   def show
+    byebug
     place_id = find_id(params[:go_to])
 
     @client = GooglePlaces::Client.new(ENV['GOOGLE_KEY'])
