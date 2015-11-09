@@ -9,6 +9,7 @@ class PlacesController < ApplicationController
   end
 
   private
+  
   def find_id(name)
     session[:search_memo][name] || query_for_id(name)
   end
