@@ -7,8 +7,11 @@ $( document ).ready(function() {
     if (text.length > 3) {
       $.ajax({
           method: "GET",
-          url: "/autocomplete",
-          data: { search: text }
+          url: "/autocomplete.json",
+          data: { search: text },
+          success: function(json) {
+             console.log(json)
+          }
       })
     }
 
