@@ -5,7 +5,7 @@ class PlacesController < ApplicationController
 
     @client = GooglePlaces::Client.new(ENV['GOOGLE_KEY'])
     result = @client.spot(place_id)
-    render result.to_json
+    render text: result.to_json
   end
 
   private

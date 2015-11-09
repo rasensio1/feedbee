@@ -14,7 +14,14 @@
 <body class="fullscreen">
 <div class="ui fixed inverted large menu">
     <a class="large item">FeedBee</a>
+
     <div class="right menu">
+      <%= form_tag("/search", method: "get") do %>
+          <%= label_tag(:q, "Search for:") %>
+          <%= text_field_tag(:q) %>
+          <%= submit_tag("Search") %>
+      <% end %>
+
         <div id='nav-search' class = 'item'>
             <div class="ui search">
                 <div class="ui icon mini input">
@@ -23,7 +30,7 @@
                 </div>
                 <div class="results"></div>
             </div>
-        </div>
+        </div><!--Search-->
       <% if current_user %>
         <%= link_to "Hello, #{current_user.name}", "#", class: "item" %>
         <%= link_to "Log Out", logout_path, class: "item" %>
@@ -32,6 +39,7 @@
         <a class="item">Sign Up</a>
       <% end %>
     </div>
+
 </div>
 
 <%= yield %>
