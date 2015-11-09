@@ -7,4 +7,5 @@ Rails.application.routes.draw do
 
   get 'place', to: 'static#place'
   get '/autocomplete', to: 'google/autocomplete#index'
+  get '/show', to: 'places#show'
 end
