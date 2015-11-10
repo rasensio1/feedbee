@@ -1,6 +1,5 @@
 require 'test_helper'
 class PlaceTest < ActiveSupport::TestCase
-
   def new_place
     Place.new(place_id: "abc123",
                  name: "first one",
