@@ -18,7 +18,7 @@ class Place < ActiveRecord::Base
   end
 
   def update_address(raw_place)
-
+    address || address = Address.new(raw_place)
   end
 
   def set_slug
