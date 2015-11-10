@@ -13,6 +13,7 @@ class PlacesController < ApplicationController
   end
 
   def show
+    @place = Place.find_by(slug: params[:slug])
   end
 
   private
