@@ -16,7 +16,9 @@
 !/log/.keep
 /tmp
 
+# Ignore all test helper files
 capybara*
+/fixtures/*
 
 # Ignore application configuration
 /config/application.yml

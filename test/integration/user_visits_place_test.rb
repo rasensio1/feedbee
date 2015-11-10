@@ -3,7 +3,7 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
   include Capybara::DSL
 
   test "with no previous entry" do
-    VCR.use_cassette("SOMETHING EHRE") do
+    VCR.use_cassette("new place") do
       visit "/"
 
       page.fill_in 'nav-search', 
