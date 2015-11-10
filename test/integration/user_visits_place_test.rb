@@ -39,5 +39,14 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
     end
   end
 
+  test "follows a place" do
+    create_turing
+    visit "places/turing-school"
+    click_on("follow")
+    visit profile_path
+
+    assert page.has_content("Turing School")
+  end
+
 
 end

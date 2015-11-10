@@ -32,4 +32,15 @@ class ActiveSupport::TestCase
       }
     })
   end
+
+  def create_turing
+    turing = Place.create(
+      name: "Turing School",
+      image_url: "www.dono.com",
+      rating: "3",
+      phone_no: "(303) 421-2345",
+      website: "turing.io",
+      hours: "PEOPLE ARE ALWAYS HERE" 
+    )
+  end
 end
