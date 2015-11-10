@@ -19,7 +19,7 @@
         <div id='nav-search' class = 'item'>
             <div class="ui search">
                 <div class="ui icon mini input">
-                    <%= form_tag("/show", method: "get") do %>
+                    <%= form_tag("/places", method: "post") do %>
                       <input id="nav-search" name="go_to" class="prompt" type="text" placeholder="Search for something!">
                       <%= submit_tag "Go", class: "ui mini button" %>
                     <% end %>
