@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/logout', as: :logout, to: 'sessions#destroy'
 
-  get 'place', to: 'static#place'
+  get 'static_place', to: 'static#place'
   get '/autocomplete', to: 'google/autocomplete#index'
-  get '/show', to: 'places#show'
+
+  get "places/:slug", as: 'place', to: 'places#show'
 end
