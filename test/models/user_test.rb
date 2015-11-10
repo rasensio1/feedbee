@@ -25,4 +25,13 @@ class UserTest < ActiveSupport::TestCase
 
     refute user.valid?
   end
+
+  test "can follow something" do
+    turing = create_turing
+    user = new_user
+
+    user.follows << turing
+
+    assert_equal "Turing School", user.follows.first.name
+  end
 end

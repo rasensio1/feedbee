@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  validates :name, :uid, presence: true
+
   def self.from_omniauth(auth_hash)
     user = find_or_create_by(uid: auth_hash.uid)
     user.update_attributes(
