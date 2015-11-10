@@ -8,7 +8,6 @@ class PlaceTest < ActiveSupport::TestCase
                  phone_no: "(539) 374-1838",
                  website: "www.ohyeah.com",
                  hours: "big formatting stuff")
-
   end
 
   test "is valid" do
