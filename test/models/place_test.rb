@@ -1,8 +1,9 @@
 require 'test_helper'
 
 class PlaceTest < ActiveSupport::TestCase
-  test "is valid" do
-    place = Place.create(place_id: "abc123", 
+
+  def new_place 
+    Place.new(place_id: "abc123", 
                  name: "first one", 
                  image_url: "www.yeah.com", 
                  rating: "3.5", 
@@ -10,6 +11,23 @@ class PlaceTest < ActiveSupport::TestCase
                  website: "www.ohyeah.com",
                  hours: "big formatting stuff")
 
-    assert place.valid?
+  end
+
+  test "is valid" do
+    assert new_place.valid?
+  end
+
+  test "is invalid without place_id" do
+    place = new_place
+    place.place_id = nil
+
+    refute place.valid?
+  end
+
+  test "is invalid without name" do
+    place = new_place
+    place.name = nil
+
+    refute place.valid?
   end
 end
