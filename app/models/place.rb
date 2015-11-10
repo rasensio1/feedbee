@@ -1,6 +1,5 @@
 class Place < ActiveRecord::Base
   before_save :set_slug
-
   validates :place_id, :name, presence: true
 
   def self.from_google_api(raw_place)

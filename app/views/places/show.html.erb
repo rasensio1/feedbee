@@ -3,7 +3,7 @@
         <div id="sidebar-grid" class="ui grid">
             <div class="sixteen wide center aligned column"><!--Picture-->
                 <div id='picture' class="ui small rounded image">
-                  <img src="https://s3-us-west-2.amazonaws.com/feedbee/EHdy1GyV.png">
+                  <%= image_tag(@place.image_url) %>
                 </div>
             </div><!--Picture-->
 
@@ -12,19 +12,19 @@
             </div>
 
             <div class="sixteen wide center aligned column">
-                <div class="ui large star rating" data-rating="3"></div>
+              <div class="ui large star rating" data-rating="#{@place.rating}"></div>
             </div>
 
             <div class="eight wide left aligned column">
-              <h3>1510 Blake St.</h3>
+              <h3><%= @address.street_number %> <%= @address.street_name %></h3>
             </div>
 
             <div class="eight wide left aligned column">
-              <h3>Denver, CO</h3>
+              <h3><%= @address.city %><%= @address.state %></h3>
             </div>
 
             <div class="sixteen wide left aligned column">
-              <h3>PH: (834) 394-2939</h3>
+              <h3><%= @place.phone_number %></h3>
             </div>
 
             <div class="sixteen wide center aligned column"><!--Map-->

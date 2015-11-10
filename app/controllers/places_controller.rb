@@ -14,6 +14,7 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find_by(slug: params[:slug])
+    @address = @place.address
   end
 
   private
