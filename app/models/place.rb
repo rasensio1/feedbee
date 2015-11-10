@@ -13,12 +13,12 @@ class Place < ActiveRecord::Base
       website: raw_place.website,
       hours: raw_place.opening_hours["weekday_text"]
     )
-    place.update_address(raw_place)
+    place.update_address(place, raw_place)
     place
   end
 
-  def update_address(raw_place)
-    address || address = Address.new(raw_place)
+  def update_address(place, raw_place)
+    Address.update_or_create(place, raw_place)
   end
 
   def set_slug
