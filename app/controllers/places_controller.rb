@@ -6,23 +6,8 @@ class PlacesController < ApplicationController
     place_id = find_id(params[:go_to])
 
     @client = GooglePlaces::Client.new(ENV['GOOGLE_KEY'])
-    result = @client.spot(place_id)
-
-    @reviewable = Place.from_google_api(place_id)
-
-    @place_id= result.place_id
-    @name = result.name 
-    @image_url = result.icon
-    @rating = result.rating
-    @street_number = result.street_number 
-    @street = result.street
-    @city = result.city
-    @region = result.region
-    @postal_code = result.postal_code
-    @website = result.website
-    @phone_number = result.formatted_phone_number
-    @hours = result.opening_hours["weekday_text"]
-    render text: result.to_json
+    raw_place = @client.spot(place_id)
+    @place = Place.from_google_api(raw_place)
   end
 
   private
