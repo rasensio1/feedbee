@@ -21,7 +21,7 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
   end
 
   test "with previous entry" do
-    VCR.use_cassette("new place") do
+    VCR.use_cassette("existing place") do
       visit "/"
 
       page.fill_in 'nav-search', 
@@ -29,12 +29,13 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
 
       click_button "Go"
 
-      assert_equal '/places/turing-school-of-software-design', 
-        current_path
+      visit "/"
 
-      assert page.has_content?("Turing School of Software & Design")
-      assert page.has_content?("1510")
-      assert page.has_content?("Denver")
+      page.fill_in 'nav-search', 
+        :with => 'Turing School of Software & Design'
+      click_button "Go"
+
+      assert_equal 1, Place.count
     end
   end
 
