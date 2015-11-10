@@ -32,5 +32,4 @@ class ActiveSupport::TestCase
       }
     })
   end
-
 end
