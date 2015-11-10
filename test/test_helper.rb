@@ -10,8 +10,13 @@ class ActiveSupport::TestCase
   end
 
   def setup
+    DatabaseCleaner.start
     Capybara.app = FeedBee::Application
     stub_omniauth
+  end
+
+  def teardown
+    DatabaseCleaner.clean
   end
 
   def stub_omniauth
