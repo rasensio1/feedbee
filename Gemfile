@@ -28,6 +28,7 @@ group :test do
   gem 'launchy'
   gem 'vcr'
   gem 'webmock'
+  gem 'database_cleaner'
 end
 
 group :development do
