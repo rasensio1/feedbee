@@ -40,8 +40,8 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
   end
 
   test "follows a place" do
-    create_turing
-    visit "places/turing-school"
+    turing = create_turing
+    visit place_path(turing.slug)
     click_on("follow")
     visit profile_path
 
