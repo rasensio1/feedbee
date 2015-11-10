@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: feedbee_production
-  username: feedbee
-  password: <%= ENV['FEEDBEE_DATABASE_PASSWORD'] %>
