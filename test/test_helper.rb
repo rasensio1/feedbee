@@ -3,6 +3,12 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
 class ActiveSupport::TestCase
+
+  VCR.configure do |config|
+    config.cassette_library_dir = "fixtures/vcr_cassettes"
+    config.hook_into :webmock
+  end
+
   def setup
     Capybara.app = FeedBee::Application
     stub_omniauth

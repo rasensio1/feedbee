@@ -3,18 +3,20 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
   include Capybara::DSL
 
   test "with no previous entry" do
-    visit "/"
+    VCR.use_cassette("SOMETHING EHRE") do
+      visit "/"
 
-    page.fill_in 'nav-search', 
-      :with => 'Turing School of Software & Design'
+      page.fill_in 'nav-search', 
+        :with => 'Turing School of Software & Design'
 
-    click_button "Go"
+      click_button "Go"
 
-    assert_equal '/places/turing-school-of-software-design', 
-      current_path
+      assert_equal '/places/turing-school-of-software-design', 
+        current_path
 
-    assert page.has_content?("Turing School of Software & Design")
-    assert page.has_content?("1510")
-    assert page.has_content?("Denver")
+      assert page.has_content?("Turing School of Software & Design")
+      assert page.has_content?("1510")
+      assert page.has_content?("Denver")
+    end
   end
 end
