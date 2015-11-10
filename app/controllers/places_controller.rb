@@ -2,12 +2,17 @@ require 'net/https'
 
 class PlacesController < ApplicationController
 
-  def show
+  def create
     place_id = find_id(params[:go_to])
 
     @client = GooglePlaces::Client.new(ENV['GOOGLE_KEY'])
     raw_place = @client.spot(place_id)
-    @place = Place.from_google_api(raw_place)
+    place = Place.from_google_api(raw_place)
+
+    redirect_to place_path(slug: place.slug)
+  end
+
+  def show
   end
 
   private

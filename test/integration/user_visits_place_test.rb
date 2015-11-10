@@ -10,7 +10,7 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
 
     click_button "Go"
 
-    assert_equal 'turing-school-of-software-design', 
+    assert_equal 'places/turing-school-of-software-design', 
       current_path
 
     assert page.has_content?("Turing School of Software & Design")

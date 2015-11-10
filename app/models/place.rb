@@ -1,4 +1,6 @@
 class Place < ActiveRecord::Base
+  before_save :set_slug
+
   validates :place_id, :name, presence: true
 
   def self.from_google_api(raw_place)
@@ -11,7 +13,11 @@ class Place < ActiveRecord::Base
       website: raw_place.website,
       hours: raw_place.opening_hours["weekday_text"]
     )
+    place
+  end
 
+  def set_slug
+    self.slug = name.parameterize
   end
    
 end

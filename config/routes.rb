@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get '/autocomplete', to: 'google/autocomplete#index'
 
   get "places/:slug", as: 'place', to: 'places#show'
+  resources 'places', only: [:create]
 end
