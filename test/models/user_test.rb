@@ -44,4 +44,19 @@ class UserTest < ActiveSupport::TestCase
 
     assert_equal 1, user.user_follows.size
   end
+
+
+  def create_turing
+    turing = Place.create(
+      name: "Turing School",
+      place_id: "abc123",
+      image_url: "www.dono.com",
+      rating: "3",
+      phone_no: "(303) 421-2345",
+      website: "turing.io",
+      hours: "PEOPLE ARE ALWAYS HERE" 
+    )
+    Address.create(place_id: turing.id)
+    turing
+  end
 end

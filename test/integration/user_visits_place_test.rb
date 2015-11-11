@@ -40,4 +40,7 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
       assert_equal 1, Place.count
     end
   end
+
+  test "can comment" do
+  end
 end
