@@ -33,4 +33,13 @@ class UserTest < ActiveSupport::TestCase
 
     assert_equal "Turing School", user.user_follows.first.followable.name
   end
+
+  test "cant double follow something" do
+    turing = create_turing
+    user = new_user
+    user.user_follows << UserFollow.new(followable_type: "Place", followable_id: turing.id)
+    user.user_follows << UserFollow.new(followable_type: "Place", followable_id: turing.id)
+
+    assert_equal 1, user.user_follows.size
+  end
 end

@@ -12,6 +12,18 @@ $( document ).ready(function() {
     });
     showCorrectFollowButton();
   });
+
+  $( "#following" ).click(function() {
+    $.ajax({
+      method: "DELETE",
+      url: "/follow",
+      data: { url: document.URL },
+      success: function() {
+      }
+    });
+    $('#following').toggleClass("hidden");
+    $('#follow').toggleClass("hidden");
+  });
 });
 
 function showCorrectFollowButton() {
@@ -20,7 +32,6 @@ function showCorrectFollowButton() {
     url: "/follow",
     data: { url: document.URL },
     success: function(follow) {
-      debugger
       if (follow) {
         $('#following').toggleClass("hidden");
     		$('#follow').toggleClass("hidden");

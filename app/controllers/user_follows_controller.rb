@@ -11,6 +11,13 @@ class UserFollowsController < ApplicationController
     render json: current_user.places.pluck(:slug).include?(slug)
   end
 
+  def destroy
+    UserFollow.where(user_id: current_user.id)
+              .where(followable_id: followable_id)
+              .destroy_all
+    render json: "Success"
+  end
+
   private
   def type
     follow_params.fourth.singularize.capitalize
