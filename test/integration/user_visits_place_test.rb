@@ -40,6 +40,8 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
   end
 
   test "follows a place" do
+    Capybara.current_driver = :selenium
+
     turing = create_turing
     visit place_path(turing.slug)
     click_on("follow")
