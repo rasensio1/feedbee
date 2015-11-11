@@ -70,6 +70,8 @@
                     <i class="plus icon"></i>
                     <%= f.text_field :body, id: "input-comment", placeholder: "Add a new comment" %>
                     <%= f.hidden_field :commentable_id, :value => @place.id %>
+                    <%= f.hidden_field :commentable_type, :value => @place.class %>
+                    <%= f.hidden_field :sentiment, :value => 1 %>
                     <div> <%= f.submit "Submit", class: "ui button", id: "submit-buttom" %> </div>
                 <% end  %>
             </div><!--New Comment -->
@@ -77,11 +79,10 @@
             <div id="comments-container" class="sixteen wide column"><!--container-->
                 <div id="shadow-container" class="ui segment">
                     <div id="scroll" class="ui centered grid">
-                        <%= render partial: "layouts/comment", collecttion: @comments %>
+                        <%= render partial: "layouts/comment", collection: @comments %>
                     </div>
                 </div>
             </div><!--container-->
-
         </div><!-- Grid -->
     </div><!--Right Section -->
 </div>
