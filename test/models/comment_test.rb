@@ -17,22 +17,22 @@ class CommentTest < ActiveSupport::TestCase
     refute comment.valid?
   end
 
-  test "is valid is invalid without followable_id" do
+  test "is valid is invalid without commentable_id" do
     comment = create_comment
-    comment.followable_id = nil
+    comment.commentable_id = nil
     refute comment.valid?
   end
 
-  test "is valid is invalid without followable_type" do
+  test "is valid is invalid without commentable_type" do
     comment = create_comment
-    comment.followable_type = nil
+    comment.commentable_type = nil
     refute comment.valid?
   end
 
   def create_comment
     Comment.new(body: "IM THE BODY", 
                 sentiment: 0, 
-                followable_id: 1, 
-                followable_type: "Place")
+                commentable_id: 1, 
+                commentable_type: "Place")
   end
 end
