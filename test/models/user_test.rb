@@ -30,7 +30,7 @@ class UserTest < ActiveSupport::TestCase
     turing = create_turing
     user = new_user
 
-    user.follows << turing
+    turing.user_follows << UserFollow.new(user_id: user.id)
 
     assert_equal "Turing School", user.follows.first.name
   end
