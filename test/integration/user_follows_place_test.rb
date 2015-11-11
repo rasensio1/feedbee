@@ -21,4 +21,20 @@ class UserFollowsPlaceSpec < ActionDispatch::IntegrationTest
     end
     Capybara.use_default_driver
   end
+
+  test "sees 'following' button when following a place" do
+    skip
+    Capybara.current_driver = Capybara.javascript_driver
+    VCR.use_cassette("following") do
+      login_user
+      visit "/"
+      page.fill_in 'nav-search', 
+        :with => 'Turing School of Software & Design'
+
+      click_button "Go"
+      click_on("follow")
+      assert page.has_content?("following")
+    end
+    Capybara.use_default_driver
+  end
 end

@@ -192,3 +192,8 @@
 .num {
   padding-right: 20px;
 }
+
+/* GENERAL */
+.ui.button.hidden {
+  display: none;
+}

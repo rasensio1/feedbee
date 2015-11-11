@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   resources 'places', only: [:create]
 
   post '/follow', to: 'user_follows#create'
+  get '/follow', to: 'user_follows#show'
 end

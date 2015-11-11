@@ -1,17 +1,30 @@
 $( document ).ready(function() {
-
+  showCorrectFollowButton();
 
   $( "#follow" ).click(function() {
-    console.log("you pressed the follow button")
-
     $.ajax({
       method: "POST",
       url: "/follow",
       data: { url: document.URL },
       success: function(place) {
-        console.log("Following...")
-        console.log(place)
+       alert("Following!");
       }
-    })
+    });
+    showCorrectFollowButton();
   });
 });
+
+function showCorrectFollowButton() {
+  $.ajax({
+    method: "get",
+    url: "/follow",
+    data: { url: document.URL },
+    success: function(follow) {
+      debugger
+      if (follow) {
+        $('#following').toggleClass("hidden");
+    		$('#follow').toggleClass("hidden");
+      }
+    }
+  });
+}
