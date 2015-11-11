@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   get "places/:slug", as: 'place', to: 'places#show'
   resources 'places', only: [:create]
 
-  post '/follow', to: 'follow#create'
+  post '/follow', to: 'user_follows#create'
 end
