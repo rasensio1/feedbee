@@ -66,11 +66,11 @@
 
 
             <div id='comment-form' class="twelve wide column"><!--New Comment -->
-                <div id='new-comment' class="ui fluid left icon input">
-                    <input id='input-comment' type="text" placeholder="Add a new comment">
+                <%= form_for @comment, html: {class: "ui fluid left icon input", id: 'new-comment'} do |f| %>
                     <i class="plus icon"></i>
-                    <%= button_to "Submit", comments_path, class: "ui button", id: "submit" %>
-                </div>
+                    <%= f.text_field :body, id: "input-comment", placeholder: "Add a new comment" %>
+                    <div> <%= f.submit "Submit", class: "ui button", id: "submit-buttom" %> </div>
+                <% end  %>
             </div><!--New Comment -->
 
             <div id="comments-container" class="sixteen wide column"><!--container-->
