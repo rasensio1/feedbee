@@ -1,7 +1,9 @@
 class Place < ActiveRecord::Base
   before_save :set_slug
   validates :place_id, :name, presence: true
+
   has_one :address
+  has_many :user_follows, as: :followable
 
   def self.from_google_api(raw_place)
     place = find_or_create_by(place_id: raw_place.place_id)
