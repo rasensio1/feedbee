@@ -1,6 +1,8 @@
 require "test_helper"
 class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
   include Capybara::DSL
+  require 'vcr'
+  require 'webmock'
 
   test "with no previous entry" do
     VCR.use_cassette("new place") do
@@ -40,11 +42,10 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
   end
 
   test "follows a place" do
-    VCR.use_cassette("follow place") do
+    VCR.use_cassette("follow") do
       Capybara.current_driver = :selenium
-
-      turing = create_turing
-      visit place_path(turing.slug)
+        visit "/"
+      visit place_path(Place.first.slug)
       click_on("follow")
       visit profile_path
 
