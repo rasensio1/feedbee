@@ -197,3 +197,14 @@
 .ui.button.hidden {
   display: none;
 }
+
+/* User show */
+
+#user-show {
+  padding-top: 70px;
+}
+
+#user-greeting {
+  font-size: 2em;
+}
+
