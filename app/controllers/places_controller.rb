@@ -13,9 +13,10 @@ class PlacesController < ApplicationController
   end
 
   def show
-    @place = Place.find_by(slug: params[:slug])
+    @place = current_place
     @address = @place.address || Address.new()
     @comment = Comment.new
+    @comments = @place.comments
   end
 
   private
@@ -26,6 +27,10 @@ class PlacesController < ApplicationController
     else
       query_for_id(name)
     end
+  end
+
+  def current_place
+    Place.find_by(slug: params[:slug])
   end
 
   def query_for_id(name)

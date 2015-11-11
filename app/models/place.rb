@@ -4,6 +4,7 @@ class Place < ActiveRecord::Base
 
   has_one :address
   has_many :user_follows, as: :followable
+  has_many :comments, as: :commentable
 
   def self.from_google_api(raw_place)
     place = find_or_create_by(place_id: raw_place.place_id)
