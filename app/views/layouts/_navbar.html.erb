@@ -1,5 +1,5 @@
 <div class="ui fixed inverted large menu">
-    <a class="large item">FeedBee</a>
+    <%= link_to "FeedBee", root_path, class: "large item" %>
 
     <div class="right menu">
         <div id='nav-search' class = 'item'>
@@ -15,7 +15,7 @@
         </div><!--Search-->
 
       <% if current_user %>
-        <%= link_to "Hello, #{current_user.name}", "#", class: "item" %>
+        <%= link_to "Hello, #{current_user.name}", profile_path, class: "item" %>
         <%= link_to "Log Out", logout_path, class: "item" %>
       <% else %>
         <%= link_to "Log In with Facebook", login_path, class: "item" %>
