@@ -3,10 +3,7 @@ class UserLogsInWithTwitterTest < ActionDispatch::IntegrationTest
   include Capybara::DSL
 
   test "logging in and out" do
-    visit "/"
-    assert_equal 200, page.status_code
-
-    click_link "Log In with Facebook"
+    login_user
     assert_equal '/', current_path
     assert page.has_content?("Ryan Asensio")
 
