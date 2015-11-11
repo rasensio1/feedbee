@@ -5,7 +5,7 @@ require 'rails/test_help'
 class ActiveSupport::TestCase
 
   VCR.configure do |config|
-    config.cassette_library_dir = "fixtures/vcr_cassettes"
+    config.cassette_library_dir = "fixtures/cassettes"
     config.hook_into :webmock
   end
 
@@ -43,5 +43,7 @@ class ActiveSupport::TestCase
       website: "turing.io",
       hours: "PEOPLE ARE ALWAYS HERE" 
     )
+    Address.create(place_id: turing.id)
+    turing
   end
 end

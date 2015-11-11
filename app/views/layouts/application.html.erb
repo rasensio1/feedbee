@@ -12,44 +12,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 </head>
 <body class="fullscreen">
-<div class="ui fixed inverted large menu">
-    <a class="large item">FeedBee</a>
-
-    <div class="right menu">
-        <div id='nav-search' class = 'item'>
-            <div class="ui search">
-                <div class="ui icon mini input">
-                    <%= form_tag("/places", method: "post") do %>
-                      <input id="nav-search" name="go_to" class="prompt" type="text" placeholder="Search for something!">
-                      <%= submit_tag "Go", class: "ui mini button" %>
-                    <% end %>
-                </div>
-                <div class="results"></div>
-            </div>
-        </div><!--Search-->
-
-      <% if current_user %>
-        <%= link_to "Hello, #{current_user.name}", "#", class: "item" %>
-        <%= link_to "Log Out", logout_path, class: "item" %>
-      <% else %>
-        <%= link_to "Log In with Facebook", login_path, class: "item" %>
-        <a class="item">Sign Up</a>
-      <% end %>
-    </div>
-
-</div>
-
-<%= yield %>
-
+  <%= render "layouts/navbar" %>
+  <%= yield %>
+  <%= render "layouts/footer" %>
 </body>
-<div class="ui inverted vertical footer segment">
-    <div class="ui center aligned container">
-      <div class="ui horizontal inverted small divided link list">
-        <a class="item" href="#">Site Map</a>
-        <a class="item" href="#">Contact Us</a>
-        <a class="item" href="#">Terms and Conditions</a>
-        <a class="item" href="#">Privacy Policy</a>
-      </div>
-    </div>
-  </div>
 </html>
