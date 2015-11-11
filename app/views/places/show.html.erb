@@ -69,7 +69,7 @@
                 <div id='new-comment' class="ui fluid left icon input">
                     <input id='input-comment' type="text" placeholder="Add a new comment">
                     <i class="plus icon"></i>
-                    <%= link_to "Submit", comments_path, method: :post, class: "ui button" %>
+                    <%= button_to "Submit", comments_path, class: "ui button", id: "submit" %>
                 </div>
             </div><!--New Comment -->
 
