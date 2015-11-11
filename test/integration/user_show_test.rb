@@ -5,7 +5,6 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
   require 'webmock'
 
   test "visist profile page" do
-    skip
     VCR.use_cassette("my_profile") do
       login_user
 
