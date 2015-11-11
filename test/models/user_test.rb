@@ -37,10 +37,12 @@ class UserTest < ActiveSupport::TestCase
   test "cant double follow something" do
     turing = create_turing
     user = new_user
-    user.user_follows << UserFollow.create(followable_type: "Place", followable_id: turing.id)
-    user.user_follows << UserFollow.create(followable_type: "Place", followable_id: turing.id)
+    user.save
 
-    assert_equal 1, user.user_follows.size
+    UserFollow.create(user_id: user.id, followable_type: "Place", followable_id: turing.id)
+    uf2 = UserFollow.new(user_id: user.id, followable_type: "Place", followable_id: turing.id)
+
+    refute uf2.valid?
   end
 
   def create_turing
