@@ -8,7 +8,7 @@ class UserFollowsController < ApplicationController
   end
 
   def type
-    follow_params.fourth.singularize
+    follow_params.fourth.singularize.capitalize
   end
 
   def followable_id
