@@ -32,13 +32,13 @@ ActiveRecord::Schema.define(version: 20151111215500) do
   create_table "comments", force: :cascade do |t|
     t.string   "body"
     t.integer  "sentiment"
-    t.integer  "followable_id"
-    t.string   "followable_type"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
-  add_index "comments", ["followable_type", "followable_id"], name: "index_comments_on_followable_type_and_followable_id", using: :btree
+  add_index "comments", ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
 
   create_table "places", force: :cascade do |t|
     t.string   "place_id"
