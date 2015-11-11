@@ -33,6 +33,14 @@ class ActiveSupport::TestCase
     })
   end
 
+  def login_create_place
+    login_user
+      visit "/"
+      page.fill_in 'nav-search', 
+        :with => 'Turing School of Software & Design'
+      click_button "Go"
+  end
+
   def login_user
     visit "/"
     if page.has_content?("Hello")

@@ -67,9 +67,9 @@
 
             <div id='comment-form' class="twelve wide column"><!--New Comment -->
                 <div id='new-comment' class="ui fluid left icon input">
-                    <input type="text" placeholder="Add a new comment">
+                    <input id='input-comment' type="text" placeholder="Add a new comment">
                     <i class="plus icon"></i>
-                    <div class="ui button">Submit</div>
+                    <%= link_to "Submit", comments_path, method: "post", class: "ui button" %>
                 </div>
             </div><!--New Comment -->
 

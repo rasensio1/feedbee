@@ -42,5 +42,15 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
   end
 
   test "can comment" do
+    VCR.use_cassette("new place") do
+      login_create_place
+      assert page.has_content?("Submit")
+
+      page.fill_in 'input-comment', 
+        :with => 'The food is bad'
+      click_on "Submit"
+
+      assert page.has_content?("The food is bad")
+    end
   end
 end
