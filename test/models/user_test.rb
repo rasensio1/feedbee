@@ -45,7 +45,6 @@ class UserTest < ActiveSupport::TestCase
     assert_equal 1, user.user_follows.size
   end
 
-
   def create_turing
     turing = Place.create(
       name: "Turing School",
