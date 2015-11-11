@@ -45,14 +45,14 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
     VCR.use_cassette("new place") do
       login_create_place
 
-      assert page.has_css?('#submit')
-
       page.fill_in 'input-comment', 
         :with => 'The food is bad'
 
       within("#comment-form") do
         click_on "Submit"
       end
+
+      visit current_path
 
       assert page.has_content?("The food is bad")
     end
