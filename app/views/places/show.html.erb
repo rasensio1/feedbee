@@ -46,9 +46,14 @@
             </div>
 
             <div id="action-container" class="four wide center aligned column">
-                <button class="ui teal small basic button">
+                <button id="follow" class="ui teal small basic button">
                     <i class="eye icon"></i>
-                     Watch 
+                    Follow 
+                </button>
+
+                <button id="following" class="ui red small basic button hidden">
+                    <i class="eye icon"></i>
+                    Following 
                 </button>
             </div>
 
@@ -72,7 +77,7 @@
                 <div id="shadow-container" class="ui segment">
                     <div id="scroll" class="ui centered grid">
                         <% 15.times do %>
-                        <%= render "comments/standard" %>
+                        <%= render "layouts/comment" %>
                         <% end %>
                     </div>
                 </div>

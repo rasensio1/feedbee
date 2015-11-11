@@ -1,6 +1,8 @@
 require "test_helper"
 class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
   include Capybara::DSL
+  require 'vcr'
+  require 'webmock'
 
   test "with no previous entry" do
     VCR.use_cassette("new place") do
@@ -38,6 +40,4 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
       assert_equal 1, Place.count
     end
   end
-
-
 end
