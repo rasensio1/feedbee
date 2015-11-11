@@ -40,17 +40,4 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
       assert_equal 1, Place.count
     end
   end
-
-  test "follows a place" do
-    VCR.use_cassette("follow") do
-      Capybara.current_driver = :selenium
-        visit "/"
-      visit place_path(Place.first.slug)
-      click_on("follow")
-      visit profile_path
-
-      assert page.has_content("Turing School")
-      Capybara.use_default_driver
-    end
-  end
 end

@@ -46,4 +46,9 @@ class ActiveSupport::TestCase
     Address.create(place_id: turing.id)
     turing
   end
+
+  def login_user
+    visit "/"
+    click_link "Log In with Facebook"
+  end
 end
