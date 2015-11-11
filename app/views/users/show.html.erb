@@ -1,1 +1,43 @@
-<%= render partial: "layouts/follow", collection: @follows %>
+<div class="ui grid">
+    <div id="sidebar" class="two wide column"><!--Sidebar-->
+    </div>
+    <div id="right-section" class="fourteen wide column">
+        <div id="user-show" class="ui centered grid">
+
+            <div class="ten wide center aligned column">
+              <h1 id="user-greeting">Hi, <%= @user.name  %></h1>
+            </div>
+
+            <div class="six wide center aligned column">
+                <div class="ui grid">
+                    <div class="sixteen wide center aligned column">
+                        <h3 id="my-information">My Information</h3>
+                    </div>
+                    <hr>
+                    <div class="sixteen wide center aligned column">
+                    <h4 id="user-info">Email: <%= @user.email %></h4>
+                    </div>
+                </div>
+            </div><!-- user info column-->
+
+            <div id="bottom-section" class="two column row">
+
+                <div id='activity-container' class="center aligned column">
+                    <h1>Recent Activity</h1>
+                    <div id="shadow-container" class="ui segment">
+                        <div id="user-scroll" class="ui centered grid">
+                        </div>
+                    </div>
+                </div>
+                <div id='follows-container' class="center aligned column">
+                    <h1>Following</h1>
+                    <div id="shadow-container" class="ui segment">
+                        <div id="user-scroll" class="ui centered grid">
+                            <%= render partial: "layouts/follow", collection: @follows %>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- BOTTOM SECTION -->
+        </div><!-- RIGHT SECTION GRID-->
+    </div><!-- RIGHT SECTION COLUMN-->
+</div>

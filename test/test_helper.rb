@@ -49,6 +49,10 @@ class ActiveSupport::TestCase
 
   def login_user
     visit "/"
-    click_link "Log In with Facebook"
+    if page.has_content?("Hello")
+      visit profile_path
+    else
+      click_link "Log In with Facebook"
+    end
   end
 end
