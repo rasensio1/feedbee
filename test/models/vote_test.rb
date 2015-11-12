@@ -26,7 +26,7 @@ class VoteTest < ActiveSupport::TestCase
     refute vote.valid?
   end
 
-  test "is can have value as 1 or -1" do
+  test "is must have value as 1 or -1" do
     vote = new_vote
 
     vote.value = 2
