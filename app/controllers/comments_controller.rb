@@ -7,6 +7,11 @@ class CommentsController < ApplicationController
     redirect_to :back
   end
 
+  def index
+    byebug
+    render json: "Hello"
+  end
+
   def comment_params
     format_params.require(:comment).permit(:body,
                                     :commentable_id,
