@@ -8,12 +8,12 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
     VCR.use_cassette("new place") do
       visit "/"
 
-      page.fill_in 'nav-search', 
+      page.fill_in 'nav-search',
         :with => 'Turing School of Software & Design'
 
       click_button "Go"
 
-      assert_equal '/places/turing-school-of-software-design', 
+      assert_equal '/places/turing-school-of-software-design',
         current_path
 
       assert page.has_content?("Turing School of Software & Design")
@@ -26,14 +26,14 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
     VCR.use_cassette("existing place") do
       visit "/"
 
-      page.fill_in 'nav-search', 
+      page.fill_in 'nav-search',
         :with => 'Turing School of Software & Design'
 
       click_button "Go"
 
       visit "/"
 
-      page.fill_in 'nav-search', 
+      page.fill_in 'nav-search',
         :with => 'Turing School of Software & Design'
       click_button "Go"
 
@@ -45,7 +45,7 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
     VCR.use_cassette("new place") do
       login_create_place
 
-      page.fill_in 'input-comment', 
+      page.fill_in 'input-comment',
         :with => 'The food is bad'
 
       within("#comment-form") do
