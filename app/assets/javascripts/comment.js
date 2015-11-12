@@ -1,6 +1,5 @@
 $( document ).ready(function() {
   loadComments();
-
 });
 
 function loadComments() {
@@ -9,7 +8,6 @@ function loadComments() {
     url: "/comments",
     data: { url: document.URL },
     success: function(comments) {
-      debugger
       $.each(comments, function(index, comment) {
         renderComment(comment)
       })
