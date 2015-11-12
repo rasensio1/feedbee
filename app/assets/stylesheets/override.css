@@ -176,9 +176,16 @@
   height: 3em;
   padding-top: 0.7em;
   padding-bottom: 0px;
-  background: rgba(117,255,124,0.46);
   box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.50);
   border-radius: 8px;
+}
+
+.positive {
+  background: rgba(117,255,124,0.46);
+}
+
+.negative {
+  background: rgba(255,117,117,0.46);
 }
 
 #comment-text {

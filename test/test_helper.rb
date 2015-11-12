@@ -33,18 +33,12 @@ class ActiveSupport::TestCase
     })
   end
 
-  def create_turing
-    turing = Place.create(
-      name: "Turing School",
-      place_id: "abc123",
-      image_url: "www.dono.com",
-      rating: "3",
-      phone_no: "(303) 421-2345",
-      website: "turing.io",
-      hours: "PEOPLE ARE ALWAYS HERE" 
-    )
-    Address.create(place_id: turing.id)
-    turing
+  def login_create_place
+    login_user
+      visit "/"
+      page.fill_in 'nav-search', 
+        :with => 'Turing School of Software & Design'
+      click_button "Go"
   end
 
   def login_user

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get "places/:slug", as: 'place', to: 'places#show'
   resources 'places', only: [:create]
 
+  resources 'comments', only: [:create]
+
   post '/follow', to: 'user_follows#create'
   get '/follow', to: 'user_follows#show'
   delete '/follow', to: 'user_follows#destroy'

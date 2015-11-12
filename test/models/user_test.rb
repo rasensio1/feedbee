@@ -27,7 +27,6 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "can follow something" do
-    skip
     turing = create_turing
     user = new_user
     user.user_follows << UserFollow.create(followable_type: "Place", followable_id: turing.id)
@@ -36,12 +35,27 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "cant double follow something" do
-    skip
     turing = create_turing
     user = new_user
-    user.user_follows << UserFollow.create(followable_type: "Place", followable_id: turing.id)
-    user.user_follows << UserFollow.create(followable_type: "Place", followable_id: turing.id)
+    user.save
 
-    assert_equal 1, user.user_follows.size
+    UserFollow.create(user_id: user.id, followable_type: "Place", followable_id: turing.id)
+    uf2 = UserFollow.new(user_id: user.id, followable_type: "Place", followable_id: turing.id)
+
+    refute uf2.valid?
+  end
+
+  def create_turing
+    turing = Place.create(
+      name: "Turing School",
+      place_id: "abc123",
+      image_url: "www.dono.com",
+      rating: "3",
+      phone_no: "(303) 421-2345",
+      website: "turing.io",
+      hours: "PEOPLE ARE ALWAYS HERE" 
+    )
+    Address.create(place_id: turing.id)
+    turing
   end
 end

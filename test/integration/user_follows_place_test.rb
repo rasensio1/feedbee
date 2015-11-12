@@ -7,8 +7,9 @@ class UserFollowsPlaceSpec < ActionDispatch::IntegrationTest
   test "follows a place" do
     skip
     Capybara.current_driver = Capybara.javascript_driver
-    VCR.use_cassette("follow") do
+    VCR.use_cassette("follow3") do
       login_user
+      click_link "Log In with Facebook"
       visit "/"
       page.fill_in 'nav-search', 
         :with => 'Turing School of Software & Design'
