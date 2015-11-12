@@ -1,9 +1,9 @@
 $( document ).ready(function() {
   loadComments();
-  readyVotes();
 });
 
 function loadComments() {
+  $("#scroll").children().remove();
   $.ajax({
     method: "get",
     url: "/comments",
@@ -12,6 +12,7 @@ function loadComments() {
       $.each(comments, function(index, comment) {
         renderComment(comment)
       })
+      readyVotes()
     }
   });
 }
@@ -30,7 +31,8 @@ function readyVotes() {
       method: "POST",
       url: "/votes",
       data: { value: 1,
-              comment_id: commentId }
+              comment_id: commentId },
+      success: function() { loadComments(); }
     });
   });
 
@@ -41,7 +43,8 @@ function readyVotes() {
       method: "POST",
       url: "/votes",
       data: { value: -1,
-              comment_id: commentId }
+              comment_id: commentId },
+      success: function() { loadComments(); }
     });
   });
 }
