@@ -46,7 +46,7 @@ class ActiveSupport::TestCase
   end
 
   def create_user
-    User.new(email: "Ryan@yeah.com",
+    User.create(email: "Ryan@yeah.com",
              uid: "123abc",
              name: "Ryan Asensio",
              oauth_token: "xxx11")

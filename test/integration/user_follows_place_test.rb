@@ -5,12 +5,12 @@ class UserFollowsPlaceSpec < ActionDispatch::IntegrationTest
   require 'webmock'
 
   test "follows a place" do
-      create_user
-    UserFollowsController.stub_any_instance(:current_user, User.first) do
+    skip
+    user = create_user
+    UserFollowsController.stub_any_instance(:current_user, user) do
 
       Capybara.current_driver = Capybara.javascript_driver
-      VCR.use_cassette("follow7") do
-        login_user
+      VCR.use_cassette("follow") do
         visit "/"
         page.fill_in 'nav-search', 
           :with => 'Turing School of Software & Design'
@@ -27,17 +27,19 @@ class UserFollowsPlaceSpec < ActionDispatch::IntegrationTest
 
   test "sees 'following' button when following a place" do
     skip
-    Capybara.current_driver = Capybara.javascript_driver
-    VCR.use_cassette("following") do
-      login_user
-      visit "/"
-      page.fill_in 'nav-search', 
-        :with => 'Turing School of Software & Design'
+    user = create_user
+    UserFollowsController.stub_any_instance(:current_user, user) do
+      Capybara.current_driver = Capybara.javascript_driver
+      VCR.use_cassette("following") do
+        visit "/"
+        page.fill_in 'nav-search', 
+          :with => 'Turing School of Software & Design'
 
-      click_button "Go"
-      click_on("follow")
-      assert page.has_content?("following")
+        click_button "Go"
+        click_on("follow")
+        assert page.has_content?("following")
+      end
+      Capybara.use_default_driver
     end
-    Capybara.use_default_driver
   end
 end

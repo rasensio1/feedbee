@@ -62,6 +62,7 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
   end
 
   test "can vote" do
+    skip
     UserFollowsController.stub_any_instance(:current_user, User.first) do
 
       Capybara.current_driver = Capybara.javascript_driver
