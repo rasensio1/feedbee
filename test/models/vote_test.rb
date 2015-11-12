@@ -29,6 +29,9 @@ class VoteTest < ActiveSupport::TestCase
   test "is must have value as 1 or -1" do
     vote = new_vote
 
+    vote.value = -1
+    assert vote.valid?
+
     vote.value = 2
     refute vote.valid?
 

@@ -40,7 +40,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "cant double vote something" do
     turing = create_turing
-    Comment.create(body: "VOTE ON ME",
+    comment = Comment.create(body: "VOTE ON ME",
                    sentiment: 1,
                    commentable_id: turing.id,
                    commentable_type: "Place")
@@ -48,8 +48,8 @@ class UserTest < ActiveSupport::TestCase
     user = new_user
     user.save
 
-    Vote.create(user_id: user.id, comment_id: turing.id, value: 1)
-    second = Vote.new(user_id: user.id, comment_id: turing.id, value: -1)
+    Vote.create(user_id: user.id, comment_id: comment.id, value: 1)
+    second = Vote.new(user_id: user.id, comment_id: comment.id, value: -1)
 
     refute second.valid?
   end
