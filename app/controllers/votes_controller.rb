@@ -1,4 +1,6 @@
 class VotesController < ApplicationController
+  before_action :require_current_user
+
   def create
     Vote.create(user_id: current_user.id,
                 value: value,

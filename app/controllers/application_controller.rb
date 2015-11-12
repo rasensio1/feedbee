@@ -9,4 +9,11 @@ class ApplicationController < ActionController::Base
   def votes(comment)
     Vote.where(comment_id: comment.id).sum(:value)
   end
+
+  def require_current_user
+    if !current_user
+      flash[:errors] = "You must be logged in to perform this action"
+      redirect_to :back
+    end
+  end
 end

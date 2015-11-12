@@ -6,23 +6,26 @@ class UserFollowsPlaceSpec < ActionDispatch::IntegrationTest
 
   test "follows a place" do
     skip
+    Capybara.current_driver = Capybara.javascript_driver
     user = create_user
+    place = create_place
+
     UserFollowsController.stub_any_instance(:current_user, user) do
-
-      Capybara.current_driver = Capybara.javascript_driver
+    CommentsController.stub_any_instance(:current_place, place) do
       VCR.use_cassette("follow") do
-        visit "/"
-        page.fill_in 'nav-search', 
-          :with => 'Turing School of Software & Design'
+        visit '/'
+        click_link "Log In with Facebook"
 
-        click_button "Go"
+        visit '/places/turing-school-of-software-design'
+
         click_on("follow")
         visit profile_path
 
         assert page.has_content?("Turing School")
       end
-      Capybara.use_default_driver
     end
+    end
+    Capybara.use_default_driver
   end
 
   test "sees 'following' button when following a place" do
