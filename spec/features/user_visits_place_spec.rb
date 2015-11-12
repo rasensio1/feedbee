@@ -37,22 +37,22 @@ RSpec.feature 'following a place' do
 
         expect(page).to have_content("The food is bad")
       end
+    end
 
-      xit"can vote" do
+    xit"can vote" do
 
-        VCR.use_cassette("can vote") do
+      VCR.use_cassette("can vote") do
 
-          visit current_path
+        visit current_path
 
-          assert page.has_content?("VOTE ON ME")
+        assert page.has_content?("VOTE ON ME")
 
-          within("div#votes") do
-            page.find(:css, '.upvote').click
-          end
-
-          assert page.has_content?("VOTE ON ME")
-          assert page.has_content?("2")
+        within("div#votes") do
+          page.find(:css, '.upvote').click
         end
+
+        assert page.has_content?("VOTE ON ME")
+        assert page.has_content?("2")
       end
     end
   end

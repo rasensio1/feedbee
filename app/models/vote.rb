@@ -13,4 +13,14 @@ class Vote < ActiveRecord::Base
       errors.add(:value, "Whatchu trying to do??")
     end
   end
+
+  def self.destroy_old_vote(user, comment_id)
+    Vote.where(user_id: user.id).where(comment_id: comment_id).destroy_all
+  end
+
+  def self.create_new_vote(user, comment_id, value)
+    Vote.create(user_id: user.id,
+                value: value,
+                comment_id: comment_id)
+  end
 end

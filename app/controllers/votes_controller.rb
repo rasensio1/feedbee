@@ -2,11 +2,12 @@ class VotesController < ApplicationController
   before_action :require_current_user
 
   def create
-    Vote.create(user_id: current_user.id,
-                value: value,
-                comment_id: comment_id)
+    Vote.destroy_old_vote(current_user, comment_id)
+    Vote.create_new_vote(current_user, comment_id, value)
     render json: true
   end
+
+  private
 
   def value
     params["value"]
@@ -15,4 +16,5 @@ class VotesController < ApplicationController
   def comment_id
     params["comment_id"]
   end
+
 end
