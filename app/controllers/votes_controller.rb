@@ -6,7 +6,6 @@ class VotesController < ApplicationController
     render json: true
   end
 
-
   def value
     params["value"]
   end

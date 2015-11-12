@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  helper_method :votes
   def create
     comment = Comment.new(comment_params)
     comment.save
@@ -13,6 +14,7 @@ class CommentsController < ApplicationController
                                     :sentiment)
   end
 
+  private
   def format_params
     params[:comment][:sentiment] = params[:comment][:sentiment].to_i
     params

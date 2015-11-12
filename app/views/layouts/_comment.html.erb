@@ -5,7 +5,7 @@
           <a id="<%= comment.id %>"><i class="chevron large down icon downvote"></i></a>
         </div>
         <div id="text-container" class="fourteen wide <%= comment.sentiment %> column">
-            <h4 class="inline num">Num</h4>
+          <h4 class="inline num"><%= votes(comment) %></h4>
             <p id="comment-text" class="inline">
                 <%= comment.body %>
             </p>
