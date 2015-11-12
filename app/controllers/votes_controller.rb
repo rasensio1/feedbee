@@ -3,6 +3,7 @@ class VotesController < ApplicationController
     Vote.create(user_id: current_user.id,
                 value: value,
                 comment_id: comment_id)
+    render json: true
   end
 
 
