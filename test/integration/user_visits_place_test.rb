@@ -5,6 +5,7 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
   require 'webmock'
 
   test "with no previous entry" do
+    Capybara.use_default_driver
     VCR.use_cassette("new place") do
       visit "/"
 
@@ -23,6 +24,7 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
   end
 
   test "with previous entry" do
+    Capybara.use_default_driver
     VCR.use_cassette("existing place") do
       visit "/"
 
@@ -42,6 +44,7 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
   end
 
   test "can comment" do
+    Capybara.use_default_driver
     VCR.use_cassette("new place") do
       login_create_place
 
@@ -59,6 +62,7 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
   end
 
   test "can vote" do
+    Capybara.current_driver = Capybara.javascript_driver
     VCR.use_cassette("new place") do
       login_create_place
       place = Place.first
@@ -73,7 +77,7 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
       assert page.has_content?("VOTE ON ME")
 
       within("div#votes") do
-        page.find(:css, '#upvote').click
+        page.find(:css, '.upvote').click
       end
 
       assert page.has_content?("VOTE ON ME")

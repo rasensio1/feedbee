@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   post '/follow', to: 'user_follows#create'
   get '/follow', to: 'user_follows#show'
   delete '/follow', to: 'user_follows#destroy'
+
+  resources 'votes', only: [:create]
 end

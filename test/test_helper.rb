@@ -7,6 +7,9 @@ class ActiveSupport::TestCase
   VCR.configure do |config|
     config.cassette_library_dir = "fixtures/cassettes"
     config.hook_into :webmock
+    config.ignore_request do |request|
+      URI(request.uri).host == '127.0.0.1'
+    end
   end
 
   def setup
