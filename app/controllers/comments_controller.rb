@@ -1,8 +1,10 @@
 class CommentsController < ApplicationController
-  helper_method :votes
+
   def create
     comment = Comment.new(comment_params)
     comment.save
+    Vote.create(user_id: current_user.id, comment_id: comment.id, value: 1)
+
     flash[:success] = "Comment Saved"
     redirect_to :back
   end

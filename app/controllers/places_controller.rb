@@ -16,7 +16,6 @@ class PlacesController < ApplicationController
     @place = current_place
     @address = @place.address || Address.new()
     @comment = Comment.new
-    @comments = @place.comments
   end
 
   private
