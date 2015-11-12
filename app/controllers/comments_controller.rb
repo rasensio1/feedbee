@@ -6,12 +6,15 @@ class CommentsController < ApplicationController
     redirect_to :back
   end
 
-  private
-
   def comment_params
-    params.require(:comment).permit(:body,
+    format_params.require(:comment).permit(:body,
                                     :commentable_id,
                                     :commentable_type,
                                     :sentiment)
+  end
+
+  def format_params
+    params[:comment][:sentiment] = params[:comment][:sentiment].to_i
+    params
   end
 end
