@@ -48,19 +48,19 @@
             <div id="action-container" class="four wide center aligned column">
                 <button id="follow" class="ui teal small basic button">
                     <i class="eye icon"></i>
-                    Follow 
+                    Follow
                 </button>
 
                 <button id="following" class="ui red small basic button hidden">
                     <i class="eye icon"></i>
-                    Following 
+                    Following
                 </button>
             </div>
 
             <div id="action-container" class="four wide center aligned column">
                 <button class="ui blue small basic button">
                     <i class="mail icon"></i>
-                    Message 
+                    Message
                 </button>
             </div>
 
@@ -71,10 +71,22 @@
                     <%= f.text_field :body, id: "input-comment", placeholder: "Add a new comment" %>
                     <%= f.hidden_field :commentable_id, :value => @place.id %>
                     <%= f.hidden_field :commentable_type, :value => @place.class %>
-                    <%= f.hidden_field :sentiment, :value => 1 %>
-                    <div> <%= f.submit "Submit", class: "ui button", id: "submit-buttom" %> </div>
+                    <%= f.hidden_field :sentiment, id: "sentiment" %>
+                      <div id="sentiment-button"> <%= f.submit "Submit", class: "ui button", id: "submit-button" %> </div>
+                      <div class="ui popup bottom left transition hidden" style="top: 154px; left: 1px; bottom: auto; right: auto; width: 761px;">
+                        <div class="ui relaxed divided grid">
+                          <div class="twelve wide column">
+                            <h4 class="ui header">Is your comment a good or bad thing?</h4>
+                            <div class="ui horizontal list">
+                              <button id="good" class="mini ui green button">Good</a>
+                              <button id="bad" class="mini ui red button">Bad</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                 <% end  %>
             </div><!--New Comment -->
+
 
             <div id="comments-container" class="sixteen wide column"><!--container-->
                 <div id="shadow-container" class="ui segment">
