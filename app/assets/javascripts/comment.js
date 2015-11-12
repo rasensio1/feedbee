@@ -22,10 +22,7 @@ function renderComment(comment) {
 }
 
 function readyVotes() {
-    console.log("its working");
-
   $( ".upvote" ).click(function() {
-    console.log("its REALLY working");
     var commentId = $(this).parent().attr("id");
     $.ajax({
       method: "POST",
@@ -37,7 +34,6 @@ function readyVotes() {
   });
 
   $(".downvote").click(function() {
-    console.log("its working")
     var commentId = $(this).parent().attr("id");
     $.ajax({
       method: "POST",
