@@ -72,8 +72,8 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
 
       assert page.has_content?("VOTE ON ME")
 
-      within("#SOMEHING") do
-        click_on "upvote"
+      within("div#votes") do
+        page.find(:css, '#upvote').click
       end
 
       assert page.has_content?("VOTE ON ME")
