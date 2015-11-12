@@ -45,6 +45,13 @@ class ActiveSupport::TestCase
       click_button "Go"
   end
 
+  def create_user
+    User.new(email: "Ryan@yeah.com",
+             uid: "123abc",
+             name: "Ryan Asensio",
+             oauth_token: "xxx11")
+  end
+
   def login_user
     visit "/"
     if page.has_content?("Hello")
