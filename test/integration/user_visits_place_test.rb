@@ -62,26 +62,34 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
   end
 
   test "can vote" do
-    Capybara.current_driver = Capybara.javascript_driver
-    VCR.use_cassette("new place") do
-      login_create_place
-      place = Place.first
+    UserFollowsController.stub_any_instance(:current_user, User.first) do
 
-      Comment.create(body: "VOTE ON ME",
-                     sentiment: 1,
-                     commentable_id: place.id,
-                     commentable_type: "Place")
+      Capybara.current_driver = Capybara.javascript_driver
+      VCR.use_cassette("can vote") do
+        login_create_place
+        place = Place.first
 
-      visit current_path
+      User.new(email: "Ryan@yeah.com",
+               uid: "123abc",
+               name: "Ryan Asensio",
+               oauth_token: "xxx11")
 
-      assert page.has_content?("VOTE ON ME")
+        Comment.create(body: "VOTE ON ME",
+                       sentiment: 1,
+                       commentable_id: place.id,
+                       commentable_type: "Place")
 
-      within("div#votes") do
-        page.find(:css, '.upvote').click
+        visit current_path
+
+        assert page.has_content?("VOTE ON ME")
+
+        within("div#votes") do
+          page.find(:css, '.upvote').click
+        end
+
+        assert page.has_content?("VOTE ON ME")
+        assert page.has_content?("2")
       end
-
-      assert page.has_content?("VOTE ON ME")
-      assert page.has_content?("2")
     end
   end
 end
