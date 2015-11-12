@@ -29,6 +29,10 @@ class PlacesController < ApplicationController
     end
   end
 
+  def current_place
+    Place.find_by(slug: params[:slug])
+  end
+
   def query_for_id(name)
     @client = GooglePlaces::Client.new(ENV['GOOGLE_KEY'])
     @client.spots_by_query(name).first.place_id

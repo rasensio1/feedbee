@@ -6,10 +6,6 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
 
-  def current_place
-    Place.find_by(slug: params[:slug])
-  end
-
   def votes(comment)
     Vote.where(comment_id: comment.id).sum(:value)
   end

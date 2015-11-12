@@ -8,8 +8,7 @@ class CommentsController < ApplicationController
   end
 
   def index
-    byebug
-    render json: "Hello"
+    render json: current_place.comments
   end
 
   def comment_params
@@ -23,5 +22,13 @@ class CommentsController < ApplicationController
   def format_params
     params[:comment][:sentiment] = params[:comment][:sentiment].to_i
     params
+  end
+
+  def slug
+    params["url"].split("/").last
+  end
+
+  def current_place
+    Place.find_by(slug: slug)
   end
 end
