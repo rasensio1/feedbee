@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
   end
 
   def index
-    render json: current_place.comments
+    render json: find_comments
   end
 
   def comment_params
@@ -30,5 +30,13 @@ class CommentsController < ApplicationController
 
   def current_place
     Place.find_by(slug: slug)
+  end
+
+  def find_comments
+    Comment.select("comments.*, sum(votes.value) AS vote_count")
+     .joins(:votes)
+     .joins(:place).where("comments.commentable_id" => current_place.id)
+     .group("comments.id")
+     .order("vote_count DESC")
   end
 end
