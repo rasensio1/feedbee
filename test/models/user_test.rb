@@ -48,8 +48,8 @@ class UserTest < ActiveSupport::TestCase
     user = new_user
     user.save
 
-    Vote.create(user_id: user.id, place_id: turing.id, value: 1)
-    second = Vote.new(user_id: user.id, place_id: turing.id, value: -1)
+    Vote.create(user_id: user.id, comment_id: turing.id, value: 1)
+    second = Vote.new(user_id: user.id, comment_id: turing.id, value: -1)
 
     refute second.valid?
   end
