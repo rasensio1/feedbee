@@ -57,4 +57,27 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
       assert page.has_content?("The food is bad")
     end
   end
+
+  test "can vote" do
+    VCR.use_cassette("new place") do
+      login_create_place
+      place = Place.first
+
+      Comment.create(body: "VOTE ON ME",
+                     sentiment: 1,
+                     commentable_id: place.id,
+                     commentable_type: "Place")
+
+      visit current_path
+
+      assert page.has_content?("VOTE ON ME")
+
+      within("#SOMEHING") do
+        click_on "upvote"
+      end
+
+      assert page.has_content?("VOTE ON ME")
+      assert page.has_content?("2")
+    end
+  end
 end
