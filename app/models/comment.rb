@@ -9,12 +9,4 @@ class Comment < ActiveRecord::Base
   belongs_to :place, -> { where(comments: {commentable_type: 'Place'}) }, foreign_key: 'commentable_id'
   has_many :votes
 
-
-  def attributes
-    super.merge('votes' => Vote.where(comment_id: id).sum(:value))
-  end
-
-  def votes
-    Vote.where(comment_id: id).sum(:value)
-  end
 end

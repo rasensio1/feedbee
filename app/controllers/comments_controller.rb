@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
   before_action :require_current_user, only: [:create]
 
   def create
-    byebug
     comment = Comment.new(comment_params)
     comment.save
     Vote.create(user_id: current_user.id, comment_id: comment.id, value: 1)
