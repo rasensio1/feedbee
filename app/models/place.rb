@@ -33,5 +33,8 @@ class Place < ActiveRecord::Base
     raw_place = @client.spot(place_id)
     Place.from_google_api(raw_place).slug
   end
+
+  def self.query_for_id(search_text)
+  end
    
 end
