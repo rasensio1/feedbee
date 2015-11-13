@@ -3,13 +3,16 @@ require 'net/https'
 class PlacesController < ApplicationController
 
   def create
-    place_id = find_id(params[:go_to])
 
-    @client = GooglePlaces::Client.new(ENV['GOOGLE_KEY'])
-    raw_place = @client.spot(place_id)
-    place = Place.from_google_api(raw_place)
+    if place_id = find_id(params[:go_to])
+      @client = GooglePlaces::Client.new(ENV['GOOGLE_KEY'])
+      raw_place = @client.spot(place_id)
+      place = Place.from_google_api(raw_place)
 
-    redirect_to place_path(slug: place.slug)
+      redirect_to place_path(slug: place.slug)
+    else
+      redirect_to bad_search_path params[:go_to]
+    end
   end
 
   def show
@@ -34,6 +37,6 @@ class PlacesController < ApplicationController
 
   def query_for_id(name)
     @client = GooglePlaces::Client.new(ENV['GOOGLE_KEY'])
-    @client.spots_by_query(name).first.place_id
+    @client.spots_by_query(name).first.place_id rescue nil
   end
 end

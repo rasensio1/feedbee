@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature 'following a place' do
+RSpec.feature 'visiting a place' do
+
   describe "a user", :js => true do
 
     before(:each) do
@@ -53,6 +54,22 @@ RSpec.feature 'following a place' do
 
         assert page.has_content?("VOTE ON ME")
         assert page.has_content?("2")
+      end
+    end
+  end
+
+  describe "that doesn't exist" do
+
+    it 'renders a SORRY page' do
+      VCR.use_cassette("nonexistnat place") do
+        visit '/'
+
+        page.fill_in 'nav-search',
+          :with => 'askljasdf'
+
+        click_button "Go"
+
+        expect(current_path).to eq(bad_search_path)
       end
     end
   end
