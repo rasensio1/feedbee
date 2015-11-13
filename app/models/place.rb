@@ -35,6 +35,7 @@ class Place < ActiveRecord::Base
   end
 
   def self.query_for_id(search_text)
+    @client = GooglePlaces::Client.new(ENV['GOOGLE_KEY'])
+    @client.spots_by_query(name).first.place_id rescue nil
   end
-   
 end

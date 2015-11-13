@@ -6,7 +6,8 @@ class PlacesController < ApplicationController
     if place_id = find_id(params[:go_to])
       redirect_to place_path(slug: Place.slug_for_show(place_id))
     else
-      redirect_to bad_search_path params[:go_to]
+      flash['message'] = "Sorry, no results for #{params[:go_to]}. Try something else!"
+      redirect_to root_path 
     end
   end
 
