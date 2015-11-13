@@ -5,6 +5,7 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
   require 'webmock'
 
   test "with no previous entry" do
+    Capybara.use_default_driver
     VCR.use_cassette("new place") do
       visit "/"
 
@@ -23,6 +24,7 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
   end
 
   test "with previous entry" do
+    Capybara.use_default_driver
     VCR.use_cassette("existing place") do
       visit "/"
 
@@ -41,20 +43,4 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
     end
   end
 
-  test "can comment" do
-    VCR.use_cassette("new place") do
-      login_create_place
-
-      page.fill_in 'input-comment',
-        :with => 'The food is bad'
-
-      within("#comment-form") do
-        click_on "Submit"
-      end
-
-      visit current_path
-
-      assert page.has_content?("The food is bad")
-    end
-  end
 end
