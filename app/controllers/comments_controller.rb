@@ -2,10 +2,7 @@ class CommentsController < ApplicationController
   before_action :require_current_user, only: [:create]
 
   def create
-    comment = Comment.new(comment_params)
-    comment.save
-    Vote.create(user_id: current_user.id, comment_id: comment.id, value: 1)
-
+    Comment.create(comment_params).create_first_vote(current_user)
     flash[:success] = "Comment Saved"
     redirect_to :back
   end
@@ -14,6 +11,8 @@ class CommentsController < ApplicationController
     render json: Comment.for_a_place(current_place)
   end
 
+  private
+
   def comment_params
     format_params.require(:comment).permit(:body,
                                     :commentable_id,
@@ -21,7 +20,6 @@ class CommentsController < ApplicationController
                                     :sentiment)
   end
 
-  private
   def format_params
     params[:comment][:sentiment] = params[:comment][:sentiment].to_i
     params
