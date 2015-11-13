@@ -3,7 +3,7 @@ require 'net/https'
 class PlacesController < ApplicationController
 
   def create
-    if place_id = find_id(params[:go_to])
+    if place_id = find_id(params[:go_to]) && find_id(params[:go_to]) != "ChIJDTLonUMZe0cRIaabPcSwTtw"
       redirect_to place_path(slug: Place.slug_for_show(place_id))
     else
       flash['message'] = "Sorry, no results for #{params[:go_to]}. Try something else!"
@@ -21,7 +21,7 @@ class PlacesController < ApplicationController
   
   def find_id(name)
     if session[:search_memo]
-      session[:search_memo][name] || query_for_id(name)
+      session[:search_memo][name] || Place.query_for_id(name)
     else
       Place.query_for_id(name)
     end

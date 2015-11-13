@@ -8,13 +8,14 @@ class Place < ActiveRecord::Base
 
   def self.from_google_api(raw_place)
     place = find_or_create_by(place_id: raw_place.place_id)
+    hours = raw_place.opening_hours["weekday_text"] rescue nil
     place.update_attributes(
       name: raw_place.name,
       image_url: raw_place.icon,
       rating: raw_place.rating,
       phone_no: raw_place.formatted_phone_number,
       website: raw_place.website,
-      hours: raw_place.opening_hours["weekday_text"]
+      hours: hours
     )
     place.update_address(place, raw_place)
     place
@@ -36,6 +37,6 @@ class Place < ActiveRecord::Base
 
   def self.query_for_id(search_text)
     @client = GooglePlaces::Client.new(ENV['GOOGLE_KEY'])
-    @client.spots_by_query(name).first.place_id rescue nil
+    res = @client.spots_by_query(name).first.place_id rescue nil
   end
 end

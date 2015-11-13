@@ -1,6 +1,5 @@
 class Google::AutocompleteController < ApplicationController
   def index
-    #OPEN SSL NEEDS TO BE FIXED PROPERLY
 
     @client = GooglePlaces::Client.new(ENV['GOOGLE_KEY'])
     result = @client.predictions_by_input(params[:search])
