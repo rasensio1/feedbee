@@ -69,7 +69,9 @@ RSpec.feature 'visiting a place' do
 
         click_button "Go"
 
-        expect(current_path).to eq(bad_search_path)
+        expect(current_path).to eq('/')
+        expect(page).to have_content("Sorry")
+        expect(page).to have_content("askljasdf")
       end
     end
   end
