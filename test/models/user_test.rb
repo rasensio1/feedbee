@@ -1,13 +1,6 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  def new_user
-    User.new(email: "Ryan@yeah.com",
-             uid: "123abc",
-             name: "Ryan Asensio",
-             oauth_token: "xxx11")
-  end
-
   test "is valid" do
     assert new_user.valid?
   end
@@ -45,6 +38,22 @@ class UserTest < ActiveSupport::TestCase
     refute uf2.valid?
   end
 
+  test "cant double vote something" do
+    turing = create_turing
+    comment = Comment.create(body: "VOTE ON ME",
+                   sentiment: 1,
+                   commentable_id: turing.id,
+                   commentable_type: "Place")
+
+    user = new_user
+    user.save
+
+    Vote.create(user_id: user.id, comment_id: comment.id, value: 1)
+    second = Vote.new(user_id: user.id, comment_id: comment.id, value: -1)
+
+    refute second.valid?
+  end
+
   def create_turing
     turing = Place.create(
       name: "Turing School",
@@ -58,4 +67,12 @@ class UserTest < ActiveSupport::TestCase
     Address.create(place_id: turing.id)
     turing
   end
+
+  def new_user
+    User.new(email: "Ryan@yeah.com",
+             uid: "123abc",
+             name: "Ryan Asensio",
+             oauth_token: "xxx11")
+  end
+
 end
