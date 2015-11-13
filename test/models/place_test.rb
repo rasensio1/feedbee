@@ -7,6 +7,8 @@ class PlaceTest < ActiveSupport::TestCase
                  rating: "3.5",
                  phone_no: "(539) 374-1838",
                  website: "www.ohyeah.com",
+                 lat: "124.14".
+                 lng: "124.14".
                  hours: "big formatting stuff")
   end
 
