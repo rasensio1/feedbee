@@ -10,7 +10,6 @@ class UserVisitsPlaceSpec < ActionDispatch::IntegrationTest
 
       visit profile_path
       assert page.has_content?("Ryan Asensio")
-      assert page.has_content?("Recent Activity")
       assert page.has_content?("Following")
     end
   end
