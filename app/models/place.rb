@@ -14,8 +14,8 @@ class Place < ActiveRecord::Base
       image_url: raw_place.icon,
       rating: raw_place.rating,
       phone_no: raw_place.formatted_phone_number,
-      lat: raw_place.geometry["location"]["lat"]
-      lng: raw_place.geometry["location"]["lng"]
+      lat: raw_place.geometry["location"]["lat"],
+      lng: raw_place.geometry["location"]["lng"],
       website: raw_place.website,
       hours: hours
     )
