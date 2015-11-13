@@ -1,7 +1,6 @@
 require 'net/https'
 
 class PlacesController < ApplicationController
-
   def create
     place_id = find_id(params[:go_to])
     if (place_id) && (place_id != "ChIJDTLonUMZe0cRIaabPcSwTtw")
