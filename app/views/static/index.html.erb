@@ -10,9 +10,7 @@
                 </div>
             </div>
         </div>
-    <button id="feedbee" class="ui blue massive button">
-        FeedBee
-    </button>
+    <%= link_to "FeedBee", place_path(slug: Place.first.slug), class: "ui blue massive button" %>
 </div>
 
 <div id='works' class="ui one column centered grid ">
@@ -43,7 +41,7 @@
             </div>
         </div>
         <div class="five wide center aligned column check-it">
-            <button id="feedbee" class="ui blue huge button"> Check it out! </button>
+            <%= link_to "Check it out!", place_path(slug: Place.first.slug), class: "ui blue huge button" %>
         </div>
     </div>
 </div>
