@@ -89,7 +89,7 @@
 
 #picture {
   margin-top: 3em;
-  border: 10px solid white;
+  border: 5px solid white;
 }
 
 #side-title {
@@ -102,7 +102,9 @@
 }
 
 #map {
+  border: 5px solid white;
   margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 #directions {

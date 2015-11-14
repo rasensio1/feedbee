@@ -25,7 +25,7 @@ class Place < ActiveRecord::Base
   end
 
   def self.find_photo_url(raw_place)
-    raw_place.photos[0].fetch_url(300)
+    raw_place.photos[0].fetch_url(400)
   end
 
   def update_address(place, raw_place)
@@ -44,6 +44,6 @@ class Place < ActiveRecord::Base
 
   def self.query_for_id(search_text)
     @client = GooglePlaces::Client.new(ENV['GOOGLE_KEY'])
-    @client.spots_by_query(search_text).first.place_id
+    @client.spots_by_query(search_text).first.place_id rescue nil
   end
 end
