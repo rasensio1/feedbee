@@ -25,7 +25,7 @@ class Place < ActiveRecord::Base
   end
 
   def self.find_photo_url(raw_place)
-    raw_place.photos[0].fetch_url(400)
+    raw_place.photos[0].fetch_url(300) rescue nil
   end
 
   def update_address(place, raw_place)
