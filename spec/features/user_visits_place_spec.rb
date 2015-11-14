@@ -14,8 +14,8 @@ RSpec.feature 'visiting a place' do
         and_return(Place.first)
     end
 
-    xit "with no previous entry" do
-      VCR.use_cassette("existing_place") do
+    it "with no previous entry" do
+      VCR.use_cassette("new place") do
         visit "/"
 
         page.fill_in 'nav-search',
@@ -29,6 +29,25 @@ RSpec.feature 'visiting a place' do
         assert page.has_content?("Turing School of Software & Design")
         assert page.has_content?("1510")
         assert page.has_content?("Denver")
+      end
+    end
+
+    xit "with previous entry" do
+      VCR.use_cassette("existing place") do
+        visit "/"
+
+        page.fill_in 'nav-search',
+          :with => 'Turing School of Software & Design'
+
+        click_button "Go"
+
+        visit "/"
+
+        page.fill_in 'nav-search',
+          :with => 'Turing School of Software & Design'
+        click_button "Go"
+
+        assert_equal 1, Place.count
       end
     end
 
