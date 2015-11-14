@@ -31,6 +31,7 @@ group :test do
   gem 'webmock'
   gem 'database_cleaner'
   gem 'selenium-webdriver'
-  gem "minitest-stub_any_instance"
+  gem 'simplecov', :require => false
+  gem 'mrspec', '~> 0.2.2'
 end
 

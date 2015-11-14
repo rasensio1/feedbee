@@ -19,11 +19,11 @@ class PlacesController < ApplicationController
 
   private
   
-  def find_id(name)
+  def find_id(search_text)
     if session[:search_memo]
-      session[:search_memo][name] || Place.query_for_id(name)
+      session[:search_memo][search_text] || Place.query_for_id(search_text)
     else
-      Place.query_for_id(name)
+      Place.query_for_id(search_text)
     end
   end
 

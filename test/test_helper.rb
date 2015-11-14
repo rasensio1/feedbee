@@ -1,7 +1,7 @@
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
-require 'minitest/stub_any_instance'
+require 'simplecov'
 
 class ActiveSupport::TestCase
 
@@ -14,6 +14,7 @@ class ActiveSupport::TestCase
   end
 
   def setup
+    SimpleCov.start 'rails'
     DatabaseCleaner.start
     Capybara.app = FeedBee::Application
     stub_omniauth

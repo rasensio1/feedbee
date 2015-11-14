@@ -4,38 +4,9 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
+require 'simplecov'
 
 ActiveRecord::Migration.maintain_test_schema!
-
-def login_user
-  visit "/"
-  click_link "Log In with Facebook"
-end
-
-def create_place
-  Place.create(name: "turing school of software design", place_id: 123)
-end
-
-def create_user
-  User.create(email: "Ryan@yeah.com",
-           uid: "123abc",
-           name: "Ryan Asensio",
-           oauth_token: "xxx11")
-end
-
-def stub_omniauth
-  OmniAuth.config.test_mode = true
-  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
-    provider: 'facebook',
-    uid: '123',
-    info: {
-      name: "Ryan Asensio"
-    },
-    credentials: {
-      oauth_token: "pizza",
-    }
-  })
-end
 
 VCR.configure do |config|
   config.cassette_library_dir = "fixtures/cassettes"
@@ -53,6 +24,7 @@ RSpec.configure do |config|
   
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
+    SimpleCov.start 'rails'
   end
 
   config.before(:each) do
@@ -69,6 +41,15 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
+  end
+
+  config.after(:suite) do
+    clear_vcrs
+  end
+
+  def clear_vcrs
+    `rm fixtures/cassettes/new.yml`
+    `rm fixtures/cassettes/nope.yml`
   end
 
 end

@@ -1,6 +1,5 @@
 class Google::AutocompleteController < ApplicationController
   def index
-
     @client = GooglePlaces::Client.new(ENV['GOOGLE_KEY'])
     result = @client.predictions_by_input(params[:search])
 
@@ -8,9 +7,6 @@ class Google::AutocompleteController < ApplicationController
       agg[name(place)] = place.place_id
       agg
     end
-
-    #Save ids in sessions, to prevent excess call for id id not necessary.
-    #This is because the autocomplete returns ids. We can store then and prevent excess calls.
     session[:search_memo] = predictions
 
     respond_to do |format|
