@@ -10,8 +10,8 @@ RSpec.feature 'visiting a place' do
         and_return(User.first)
       UsersController.any_instance.stub(:current_user).
         and_return(User.first)
-      CommentsController.any_instance.stub(:current_place).
-        and_return(Place.first)
+      Comment.stub(:for_a_place).
+        and_return(nil)
     end
 
     it "with no previous entry" do
@@ -26,28 +26,7 @@ RSpec.feature 'visiting a place' do
         assert_equal '/places/turing-school-of-software-design',
           current_path
 
-        assert page.has_content?("Turing School of Software & Design")
-        assert page.has_content?("1510")
-        assert page.has_content?("Denver")
-      end
-    end
-
-    xit "with previous entry" do
-      VCR.use_cassette("existing place") do
-        visit "/"
-
-        page.fill_in 'nav-search',
-          :with => 'Turing School of Software & Design'
-
-        click_button "Go"
-
-        visit "/"
-
-        page.fill_in 'nav-search',
-          :with => 'Turing School of Software & Design'
-        click_button "Go"
-
-        assert_equal 1, Place.count
+        assert page.has_content?("turing school of software design")
       end
     end
 
@@ -77,7 +56,6 @@ RSpec.feature 'visiting a place' do
     end
 
     xit"can vote" do
-
       VCR.use_cassette("can vote") do
 
         visit current_path
@@ -96,8 +74,19 @@ RSpec.feature 'visiting a place' do
 
   describe "that doesn't exist" do
 
+    before(:each) do
+      create_place
+      create_user
+      UserFollowsController.any_instance.stub(:current_user).
+        and_return(User.first)
+      UsersController.any_instance.stub(:current_user).
+        and_return(User.first)
+      Comment.stub(:for_a_place).
+        and_return("")
+    end
+
     it 'renders a SORRY page' do
-      VCR.use_cassette("nonexistnat place") do
+      VCR.use_cassette("can vote") do
         visit '/'
 
         page.fill_in 'nav-search',
