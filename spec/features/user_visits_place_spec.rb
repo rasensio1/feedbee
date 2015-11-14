@@ -15,7 +15,7 @@ RSpec.feature 'visiting a place' do
     end
 
     it "with no previous entry" do
-      VCR.use_cassette("new place") do
+      VCR.use_cassette("new") do
         visit "/"
 
         page.fill_in 'nav-search',
@@ -86,7 +86,7 @@ RSpec.feature 'visiting a place' do
     end
 
     it 'renders a SORRY page' do
-      VCR.use_cassette("can vote") do
+      VCR.use_cassette("nope") do
         visit '/'
 
         page.fill_in 'nav-search',
