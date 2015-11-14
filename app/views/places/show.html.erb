@@ -1,4 +1,4 @@
-<div class="ui grid">
+<div id="place-show" class="ui grid">
     <div id="sidebar" class="four wide column"><!--Sidebar-->
         <div id="sidebar-grid" class="ui grid">
             <div class="sixteen wide center aligned column"><!--Picture-->
@@ -8,32 +8,27 @@
             </div><!--Picture-->
 
             <div class="sixteen wide center aligned column">
-              <h3 id="side-title"><%= @place.name  %></h3>
+                <h3 id="side-title"><%= @place.name  %></h3>
             </div>
 
             <div class="sixteen wide center aligned column">
-              <div class="ui large star rating" data-rating="#{@place.rating}"></div>
+                <div class="ui large star rating" data-rating=<%= @place.rating %>></div>
             </div>
 
-            <div class="sixteen wide left aligned column">
-              <h3><%= @address.street_no %> <%= @address.street_name %></h3>
+            <div id='address' class="sixteen wide center aligned column">
+                <h3><%= @address.street_no %> <%= @address.street_name %></h3>
             </div>
 
-            <div class="sixteen wide left aligned column">
-              <h3><%= @address.city %>, <%= @address.region %></h3>
+            <div id='address' class="sixteen wide center aligned column">
+                <h3><%= @address.city %>, <%= @address.region %></h3>
             </div>
 
-            <div class="sixteen wide left aligned column">
-              <h3><%= @place.phone_no %></h3>
+            <div id='address' class="sixteen wide center aligned column">
+                <h3><%= @place.phone_no %></h3>
             </div>
 
             <div class="sixteen wide center aligned column"><!--Map-->
-                <a href="#">
-                    <div id='map' class="ui circular image">
-                        <img src="https://s3-us-west-2.amazonaws.com/feedbee/map_Fotor.jpg">
-                    </div>
-                    <p id="directions">Directions</p>
-                </a>
+                <div id='map' class="ui medium rounded image" style="height: 15em; width: 15em;"></div>
             </div><!--Map-->
 
         </div>
@@ -97,3 +92,26 @@
         </div><!-- Grid -->
     </div><!--Right Section -->
 </div>
+
+<script type="text/javascript">
+
+var map;
+function initMap() {
+  var myLatLng = {lat: <%= @place.lat %>, lng: <%= @place.lng %>};
+
+  map = new google.maps.Map(document.getElementById('map'), {
+  center: myLatLng, 
+  zoom: 14
+  });
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!'
+  });
+}
+
+</script>
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_KEY']%>&callback=initMap">
+</script>

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'following a place' do
+RSpec.feature 'visiting a place' do
   describe "a user", :js => true do
 
     before(:each) do
@@ -12,6 +12,24 @@ RSpec.feature 'following a place' do
         and_return(User.first)
       CommentsController.any_instance.stub(:current_place).
         and_return(Place.first)
+    end
+
+    xit "with no previous entry" do
+      VCR.use_cassette("existing_place") do
+        visit "/"
+
+        page.fill_in 'nav-search',
+          :with => 'Turing School of Software & Design'
+
+        click_button "Go"
+
+        assert_equal '/places/turing-school-of-software-design',
+          current_path
+
+        assert page.has_content?("Turing School of Software & Design")
+        assert page.has_content?("1510")
+        assert page.has_content?("Denver")
+      end
     end
 
     xit "can comment" do
@@ -53,6 +71,24 @@ RSpec.feature 'following a place' do
 
         assert page.has_content?("VOTE ON ME")
         assert page.has_content?("2")
+      end
+    end
+  end
+
+  describe "that doesn't exist" do
+
+    it 'renders a SORRY page' do
+      VCR.use_cassette("nonexistnat place") do
+        visit '/'
+
+        page.fill_in 'nav-search',
+          :with => 'askljasdf'
+
+        click_button "Go"
+
+        expect(current_path).to eq('/')
+        expect(page).to have_content("Sorry")
+        expect(page).to have_content("askljasdf")
       end
     end
   end

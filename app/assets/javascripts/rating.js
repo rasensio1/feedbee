@@ -1,10 +1,9 @@
 $( document ).ready(function() {
+  var myRating = $('.rating').attr("data-rating");
   $('.ui.rating')
     .rating({
-      initialRating: 3,
+      initialRating: myRating,
       maxRating: 5
     });
-
-  $('.ui.rating')
-    .rating('disable') ;
 });
+

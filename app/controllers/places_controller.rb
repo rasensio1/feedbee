@@ -1,15 +1,14 @@
 require 'net/https'
 
 class PlacesController < ApplicationController
-
   def create
     place_id = find_id(params[:go_to])
-
-    @client = GooglePlaces::Client.new(ENV['GOOGLE_KEY'])
-    raw_place = @client.spot(place_id)
-    place = Place.from_google_api(raw_place)
-
-    redirect_to place_path(slug: place.slug)
+    if (place_id) && (place_id != "ChIJDTLonUMZe0cRIaabPcSwTtw")
+      redirect_to place_path(slug: Place.slug_for_show(place_id))
+    else
+      flash['message'] = "Sorry, no results for #{params[:go_to]}. Try something else!"
+      redirect_to root_path 
+    end
   end
 
   def show
@@ -22,18 +21,13 @@ class PlacesController < ApplicationController
   
   def find_id(name)
     if session[:search_memo]
-      session[:search_memo][name] || query_for_id(name)
+      session[:search_memo][name] || Place.query_for_id(name)
     else
-      query_for_id(name)
+      Place.query_for_id(name)
     end
   end
 
   def current_place
     Place.find_by(slug: params[:slug])
-  end
-
-  def query_for_id(name)
-    @client = GooglePlaces::Client.new(ENV['GOOGLE_KEY'])
-    @client.spots_by_query(name).first.place_id
   end
 end

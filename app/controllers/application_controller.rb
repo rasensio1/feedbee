@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   def require_current_user
     if !current_user
-      flash[:errors] = "You must be logged in to perform this action"
+      flash[:message] = "You must be logged in to perform this action"
       redirect_to :back
     end
   end
