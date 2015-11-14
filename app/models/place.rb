@@ -16,11 +16,16 @@ class Place < ActiveRecord::Base
       phone_no: raw_place.formatted_phone_number,
       lat: raw_place.lat,
       lng: raw_place.lng,
+      photo_url: find_photo_url(raw_place),
       website: raw_place.website,
       hours: hours
     )
     place.update_address(place, raw_place)
     place
+  end
+
+  def self.find_photo_url(raw_place)
+    raw_place.photos[0].fetch_url(300)
   end
 
   def update_address(place, raw_place)
@@ -39,6 +44,6 @@ class Place < ActiveRecord::Base
 
   def self.query_for_id(search_text)
     @client = GooglePlaces::Client.new(ENV['GOOGLE_KEY'])
-    @client.spots_by_query(name).first.place_id rescue nil
+    @client.spots_by_query(search_text).first.place_id
   end
 end
