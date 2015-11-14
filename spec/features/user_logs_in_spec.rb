@@ -1,8 +1,6 @@
-require "test_helper"
-class UserLogsInWithTwitterTest < ActionDispatch::IntegrationTest
-  include Capybara::DSL
-
-  test "logging in and out" do
+RSpec.feature 'logging in and out' do
+  it "works" do
+    stub_omniauth
     login_user
     assert_equal '/', current_path
     assert page.has_content?("Ryan Asensio")
