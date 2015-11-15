@@ -1,5 +1,3 @@
-require 'net/https'
-
 class PlacesController < ApplicationController
   def create
     place_id = find_id(params[:go_to])
