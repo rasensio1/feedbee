@@ -31,15 +31,11 @@
                         <h4>Email: <%= @user_presenter.email %></h4>
                     </div>
 
-                    <div class="sixteen wide center aligned column">
-                        <h4>Status:  Singe and willing to mingle</h4>
-                    </div>
-
                     <div id="votes-container" class="sixteen wide center aligned column">
                         <h4 id="votes-count">Votes: <%= @user_presenter.votes_count %></h4>
+                        <h4 id="user-rank" class='inline'>Rank: <%= @user_presenter.rank[:rank]%></h4>
                     </div>
-                    <div id="votes-container" class="sixteen wide center aligned column">
-                        <h4 id="user-rank">Rank: <%= @user_presenter.rank[:rank]%></h4>
+                    <div id="rank-container" class="sixteen wide center aligned column">
                         <h4 id="rank-text"><%= @user_presenter.rank[:text]%></h4>
                     </div>
                 </div>
