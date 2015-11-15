@@ -1,9 +1,7 @@
 class UserFollowsController < ApplicationController
 
   def create
-    UserFollow.create(user_id: current_user.id,
-                     followable_id: followable_id,
-                     followable_type: type)
+    FollowChanger.create(current_user, params["url"])
     render json: "Success"
   end
 
@@ -12,26 +10,7 @@ class UserFollowsController < ApplicationController
   end
 
   def destroy
-    UserFollow.where(user_id: current_user.id)
-              .where(followable_id: followable_id)
-              .destroy_all
+    FollowChanger.destroy(current_user, params["url"])
     render json: "Success"
-  end
-
-  private
-  def type
-    follow_params.fourth.singularize.capitalize
-  end
-
-  def followable_id
-    Place.find_by(slug: slug).id
-  end
-
-  def slug
-    follow_params.last
-  end
-
-  def follow_params
-    params["url"].split("/")
   end
 end
