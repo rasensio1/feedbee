@@ -1,5 +1,5 @@
 <div id='comment-form' class="twelve wide column">
-    <%= form_for @presenter.form_comment, html: {class: "ui fluid left icon input", id: 'new-comment'} do |f| %>
+    <%= form_for @comment, html: {class: "ui fluid left icon input", id: 'new-comment'} do |f| %>
         <i class="plus icon"></i>
         <%= f.text_field :body, id: "input-comment", placeholder: "Add a new comment" %>
         <%= f.hidden_field :commentable_id, :value => @presenter.id %>
