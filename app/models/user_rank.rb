@@ -1,5 +1,4 @@
 class UserRank
-
   def self.rank(votes)
     if votes > 100
       { rank: "Absolutely Amazing",
@@ -14,13 +13,12 @@ class UserRank
         text: "Keep it up, my friend" }
     elsif votes > 10
       { rank: "Journeyman",
-        text: "Poke around a bit more! See if you can find any bugs and let me know." }
+        text: "Poke around a bit more! 
+        See if you can find any bugs and let me know." }
     else
       { rank: "Novice",
         text: "Look up some places you like or don't like and leave some feedback.
         let's try to make the world a little bit better" }
     end
-
   end
-
 end
