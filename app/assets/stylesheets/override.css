@@ -167,7 +167,7 @@
 
 #scroll {
   overflow: auto;
-  height: 390px;
+  height: 30em;
 }
 
 #standard-comment {
@@ -221,18 +221,13 @@
 /* User show */
 
 #user-show {
-  padding-top: 70px;
+  padding-top: 60px;
 }
 
 #user-greeting {
   font-size: 3em;
-  padding-left: 40px
-}
-
-#follows-container {
-  padding-right: 50px;
-  padding-left: 50px;
-  padding-bottom: 40px;
+  padding-left: 150px;
+  margin-bottom: 100px;
 }
 
 #activity-container {
@@ -241,11 +236,15 @@
   padding-bottom: 40px;
 }
 
+#following-header {
+  padding-bottom: 13px;
+}
+
 #standard-follow {
   padding-right: 50px;
   padding-left: 30px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   margin-top: 7px;
   margin-bottom: 7px;
 }
@@ -258,15 +257,36 @@
   box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
   border-radius: 7px;
   background: #B1D1FD;
+  padding-top: 0px;
+  padding-bottom: 0px;
+
+  margin-top: 8px;
+  margin-bottom: 8px;
+
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-#follow-container {
-  padding-top: 8px;
-  padding-bottom: 8px;
+#followable {
+  margin: 0px;
+  padding: 0px;
 }
 
-#bottom-section {
-  margin-top: 40px;
+#follows-container {
+  margin-bottom: 20px;
+  margin-left: 40px;
+}
+
+#votes-container {
+  margin-top: 80px;
+}
+
+#votes-count {
+  font-size: 2em;
+}
+
+#left-section {
+  margin-top: 20px;
 }
 
 #user-scroll {

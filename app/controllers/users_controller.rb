@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
-
   def show
-    @user = current_user
-    @follows = current_user.user_follows
+    @user_presenter = UserPresenter.new(current_user)
   end
 end

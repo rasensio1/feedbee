@@ -16,5 +16,4 @@ class VotesController < ApplicationController
   def comment_id
     params["comment_id"]
   end
-
 end

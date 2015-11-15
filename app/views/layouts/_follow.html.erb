@@ -1,8 +1,5 @@
-<div id="standard-follow" class="sixteen wide column">
-    <div id="follow-container" class="ui centered grid">
-        <div id="follow-text-container" class="fourteen wide column">
-            <i class="inline remove icon"></i>
-                <%= link_to follow.followable.name, place_path(follow.followable.slug), id: "comment-text", class: "inline" %>
-        </div>
+<%= link_to place_path(follow.slug), class: "sixteen wide center aligned column", id: "follow-text-container" do %>
+    <div id="standard-follow">
+         <h3 class="followable"><%= follow.name %></h3>
     </div>
-</div>
+<% end %>

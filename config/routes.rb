@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
   get '/profile', to: 'users#show'
 
-  get 'static_place', to: 'static#place'
   get '/autocomplete', to: 'google/autocomplete#index'
   get '/map', to: 'static#map'
 

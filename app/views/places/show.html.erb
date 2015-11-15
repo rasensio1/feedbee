@@ -3,28 +3,28 @@
         <div id="sidebar-grid" class="ui grid">
             <div class="sixteen wide center aligned column"><!--Picture-->
                 <div id='picture' class="ui medium circular image">
-                  <%= image_tag(@place.photo_url) %>
+                  <%= image_tag(@presenter.photo_url) %>
                 </div>
             </div><!--Picture-->
 
             <div class="sixteen wide center aligned column">
-                <h3 id="side-title"><%= @place.name  %></h3>
+                <h3 id="side-title"><%= @presenter.name  %></h3>
             </div>
 
             <div class="sixteen wide center aligned column">
-                <div class="ui large star rating" data-rating=<%= @place.rating %>></div>
+                <div class="ui large star rating" data-rating=<%= @presenter.rating %>></div>
             </div>
 
             <div id='address' class="sixteen wide center aligned column">
-                <h3><%= @address.street_no %> <%= @address.street_name %></h3>
+                <h3><%= @presenter.display_address.street_no %> <%= @presenter.display_address.street_name %></h3>
             </div>
 
             <div id='address' class="sixteen wide center aligned column">
-                <h3><%= @address.city %>, <%= @address.region %></h3>
+                <h3><%= @presenter.display_address.city %>, <%= @presenter.display_address.region %></h3>
             </div>
 
             <div id='address' class="sixteen wide center aligned column">
-                <h3><%= @place.phone_no %></h3>
+                <h3><%= @presenter.phone_no %></h3>
             </div>
 
             <div class="sixteen wide center aligned column"><!--Map-->
@@ -37,7 +37,7 @@
     <div id="right-section" class="twelve wide column">
         <div class="ui centered grid">
             <div id="title-container" class="sixteen wide center aligned column">
-              <h1 id="title"><%= @place.name %></h1>
+              <h1 id="title"><%= @presenter.name %></h1>
             </div>
 
             <div id="action-container" class="four wide center aligned column">
@@ -58,31 +58,7 @@
                     Message
                 </button>
             </div>
-
-
-            <div id='comment-form' class="twelve wide column"><!--New Comment -->
-                <%= form_for @comment, html: {class: "ui fluid left icon input", id: 'new-comment'} do |f| %>
-                    <i class="plus icon"></i>
-                    <%= f.text_field :body, id: "input-comment", placeholder: "Add a new comment" %>
-                    <%= f.hidden_field :commentable_id, :value => @place.id %>
-                    <%= f.hidden_field :commentable_type, :value => @place.class %>
-                    <%= f.hidden_field :sentiment, id: "sentiment" %>
-                      <div id="sentiment-button"> <%= f.submit "Submit", class: "ui button", id: "submit-button" %> </div>
-                      <div class="ui popup bottom left transition hidden" style="top: 154px; left: 1px; bottom: auto; right: auto; width: 761px;">
-                        <div class="ui relaxed divided grid">
-                          <div class="twelve wide column">
-                            <h4 class="ui header">Is your comment a good or bad thing?</h4>
-                            <div class="ui horizontal list">
-                              <button id="good" class="mini ui green button">Good</a>
-                              <button id="bad" class="mini ui red button">Bad</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                <% end  %>
-            </div><!--New Comment -->
-
-
+            <%= render "layouts/new_comment" %>
             <div id="comments-container" class="sixteen wide column"><!--container-->
                 <div id="shadow-container" class="ui segment">
                     <div id="scroll" class="ui centered grid">
@@ -97,7 +73,7 @@
 
 var map;
 function initMap() {
-  var myLatLng = {lat: <%= @place.lat %>, lng: <%= @place.lng %>};
+  var myLatLng = {lat: <%= @presenter.my_lat %>, lng: <%= @presenter.my_lng %>};
 
   map = new google.maps.Map(document.getElementById('map'), {
   center: myLatLng, 
