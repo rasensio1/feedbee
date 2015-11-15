@@ -10,8 +10,7 @@ class PlacesController < ApplicationController
   end
 
   def show
-    @place = current_place
-    @address = @place.address || Address.new()
+    @presenter = PlacePresenter.new(current_place)
     @comment = Comment.new
   end
 
