@@ -18,12 +18,12 @@ function loadComments() {
 }
 
 function renderComment(comment) {
-      $('#scroll').append(" <div id='standard-comment' class='sixteen wide column'> <div id='comment-container' class='ui centered grid'> <div id='votes' class='two wide center aligned column'> <a id=" + comment.id + "><i class='chevron large up icon upvote'></i></a> <a id=" + comment.id + "><i class='chevron large down icon downvote'></i></a> </div> <div id='text-container' class='fourteen wide "+ comment.sentiment + " column'> <h4 class='inline num'>"+ comment.vote_count +"</h4> <p id='comment-text' class='inline'>" + comment.body + "</p> </div> </div> </div> ")
+      $('#scroll').append(" <div id='standard-comment' class='sixteen wide column'> <div id='comment-container' class='ui centered grid'> <div id='votes' class='two wide center aligned column'> <i id=" + comment.id + " class='chevron up icon upvote'></i><i id=" + comment.id + " class='chevron down icon downvote'></i></div> <div id='text-container' class='fourteen wide "+ comment.sentiment + " column'> <h4 class='inline num'>"+ comment.vote_count +"</h4> <p id='comment-text' class='inline'>" + comment.body + "</p> </div> </div> </div> ")
 }
 
 function readyVotes() {
   $( ".upvote" ).click(function() {
-    var commentId = $(this).parent().attr("id");
+    var commentId = $(this).attr("id");
     $.ajax({
       method: "POST",
       url: "/votes",
@@ -34,7 +34,7 @@ function readyVotes() {
   });
 
   $(".downvote").click(function() {
-    var commentId = $(this).parent().attr("id");
+    var commentId = $(this).attr("id");
     $.ajax({
       method: "POST",
       url: "/votes",
