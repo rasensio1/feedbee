@@ -16,8 +16,4 @@ class Comment < ActiveRecord::Base
      .group("comments.id")
      .order("vote_count DESC")
   end
-
-  def create_first_vote(current_user)
-    Vote.create(user_id: current_user.id, comment_id: id, value: 1)
-  end
 end

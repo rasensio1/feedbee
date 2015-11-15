@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :require_current_user, only: [:create]
 
   def create
-    Comment.create(comment_params).create_first_vote(current_user)
+    CommentCreator.go(comment_params, current_user)
     flash[:success] = "Comment Saved"
     redirect_to :back
   end
