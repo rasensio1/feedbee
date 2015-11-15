@@ -251,7 +251,7 @@ DEPENDENCIES
   figaro
   google_places
   jbuilder (~> 2.0)
-  jquery-rails (~> 4.0.0)
+  jquery-rails
   launchy
   less-rails-semantic_ui
   mrspec (~> 0.2.2)
