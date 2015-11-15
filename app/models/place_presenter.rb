@@ -12,10 +12,6 @@ class PlacePresenter < SimpleDelegator
     address || Address.new()
   end
 
-  def form_comment
-    Comment.new()
-  end
-
   def my_lat
     self.lat || "?"
   end

@@ -11,7 +11,7 @@ class PlacesController < ApplicationController
 
   def show
     @presenter = PlacePresenter.new(current_place)
-    @comment = Comment.new
+    @comment = Comment.new()
   end
 
   private
