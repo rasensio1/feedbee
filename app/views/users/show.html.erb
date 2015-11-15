@@ -11,7 +11,7 @@
                 </div>
 
                 <div id='follows-container' class="center aligned column">
-                    <h1 class="ui horizontal divider header">Following</h1>
+                    <h1 id='following-header' class="ui horizontal divider header">Following</h1>
                     <br>
                     <div id="shadow-container" class="ui segment">
                         <div id="user-scroll" class="ui centered grid">
@@ -36,7 +36,7 @@
                     </div>
 
                     <div id="votes-container" class="sixteen wide center aligned column">
-                        <h4 id="votes">Votes: 5</h4>
+                      <h4 id="votes">Votes: <%= @votes %></h4>
                     </div>
                 </div>
             </div><!-- user info column-->

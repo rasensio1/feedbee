@@ -236,6 +236,10 @@
   padding-bottom: 40px;
 }
 
+#following-header {
+  padding-bottom: 13px;
+}
+
 #standard-follow {
   padding-right: 50px;
   padding-left: 30px;
@@ -274,7 +278,7 @@
 }
 
 #votes-container {
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 #votes {
