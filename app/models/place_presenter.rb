@@ -9,14 +9,14 @@ class PlacePresenter < SimpleDelegator
   end
 
   def display_address
-    address || Address.new()
+    address || Address.new
   end
 
   def my_lat
-    self.lat || "?"
+    lat || "?"
   end
 
   def my_lng
-    self.lng || "?"
+    lng || "?"
   end
 end
