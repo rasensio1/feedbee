@@ -1,31 +1,31 @@
-class FollowChanter
-  def create(user, url)
+class FollowChanger
+  def self.create(user, url)
     UserFollow.create(user_id: user.id,
-                     followable_id: followable_id,
-                     followable_type: type)
+                     followable_id: followable_id(url),
+                     followable_type: type(url))
   end
   
-  def destory(user, url)
+  def self.destroy(user, url)
     UserFollow.where(user_id: user.id)
-              .where(followable_id: followable_id)
+              .where(followable_id: followable_id(url))
               .destroy_all
   end
 
   private
 
-  def self.followable_id
-    Place.find_by(slug: slug).id
+  def self.followable_id(url)
+    Place.find_by(slug: slug(url)).id
   end
 
-  def self.type
-    follow_params.fourth.singularize.capitalize
+  def self.type(url)
+    follow_params(url).fourth.singularize.capitalize
   end
 
-  def self.slug
-    follow_params.last
+  def self.slug(url)
+    follow_params(url).last
   end
 
-  def follow_params(url)
+  def self.follow_params(url)
     url.split("/")
   end
 end

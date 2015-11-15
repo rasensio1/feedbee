@@ -13,4 +13,14 @@ class UserFollowsController < ApplicationController
     FollowChanger.destroy(current_user, params["url"])
     render json: "Success"
   end
+
+  private
+
+  def slug
+    follow_params.last
+  end
+
+  def follow_params
+    params["url"].split("/")
+  end
 end
