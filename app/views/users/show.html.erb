@@ -38,6 +38,10 @@
                     <div id="votes-container" class="sixteen wide center aligned column">
                         <h4 id="votes-count">Votes: <%= @user_presenter.votes_count %></h4>
                     </div>
+                    <div id="votes-container" class="sixteen wide center aligned column">
+                        <h4 id="user-rank">Rank: <%= @user_presenter.rank[:rank]%></h4>
+                        <h4 id="rank-text"><%= @user_presenter.rank[:text]%></h4>
+                    </div>
                 </div>
             </div><!-- user info column-->
 
