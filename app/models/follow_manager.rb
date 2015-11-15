@@ -33,4 +33,3 @@ class FollowManager
     url.split("/")
   end
 end
-
