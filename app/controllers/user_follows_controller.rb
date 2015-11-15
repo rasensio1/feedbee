@@ -1,16 +1,16 @@
 class UserFollowsController < ApplicationController
 
   def create
-    FollowChanger.create(current_user, params["url"])
+    FollowManager.create(current_user, params["url"])
     render json: "Success"
   end
 
   def show
-    render json: current_user.places.pluck(:slug).include?(slug)
+    render json: FollowManager.is_following?(current_user, params["url"])
   end
 
   def destroy
-    FollowChanger.destroy(current_user, params["url"])
+    FollowManager.destroy(current_user, params["url"])
     render json: "Success"
   end
 
