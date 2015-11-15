@@ -15,7 +15,7 @@ class UserPresenter < SimpleDelegator
     UserRank.rank(votes_count)
   end
 
-  def get_votes 
+  def get_votes
     user.votes.count
   end
 end
