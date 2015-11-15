@@ -1,5 +1,5 @@
-<%= link_to place_path(follow.followable.slug), class: "sixteen wide center aligned column", id: "follow-text-container" do %>
-    <div id="standard-follow" class="">
-         <h3 class="followable"><%= follow.followable.name %></h3>
+<%= link_to place_path(follow.slug), class: "sixteen wide center aligned column", id: "follow-text-container" do %>
+    <div id="standard-follow">
+         <h3 class="followable"><%= follow.name %></h3>
     </div>
 <% end %>
