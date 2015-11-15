@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
     user = find_or_create_by(uid: auth_hash.uid)
     user.update_attributes(
       oauth_token: auth_hash.credentials.token,
+      email: auth_hash.info.email,
       name:        auth_hash.info.name
     )
     user.save!
