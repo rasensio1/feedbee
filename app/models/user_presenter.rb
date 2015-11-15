@@ -7,7 +7,7 @@ class UserPresenter < SimpleDelegator
   end
 
   def follows
-    user.user_follows.map(&:followable)
+    Place.joins(:user_follows).where("user_follows.user_id" => user.id)
   end
 
   def votes_count
