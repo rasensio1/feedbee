@@ -1,5 +1,5 @@
 require 'rails_helper' 
-describe Place do
+describe Comment do
 
   it "is valid" do
     assert create_comment.valid?
