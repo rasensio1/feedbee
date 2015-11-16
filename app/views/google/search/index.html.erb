@@ -1,0 +1,10 @@
+<% @places.each do |place| %>
+  <p>
+  <%= place.name %>
+  <%= place.address.street_no %>
+  <%= place.address.street_name %>
+  <%= place.address.city %>
+  <%= place.address.region %>
+  <%= place.address.postal_code %>
+  </p>
+<% end %>
