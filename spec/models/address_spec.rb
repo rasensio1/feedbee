@@ -2,14 +2,18 @@ require 'rails_helper'
 describe Address do
 
   it 'is valid' do
-    expect(create_address).to be_valid
+    place = new_place
+    address = create_address
+    address.place_id = place.id
+
+    expect(address).to be_valid
   end
 
   it '#update_or_create update' do
     place = new_place
     address = create_address
-    create_address.place_id = place.id
-    create_address.save
+    address.place_id = place.id
+    address.save
 
     Address.update_or_create(place, raw_place) 
 
