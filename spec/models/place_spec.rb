@@ -1,6 +1,5 @@
-require 'rails_helper' 
+require 'rails_helper'
 describe Place do
-
   it "is valid" do
     assert new_place.valid?
   end
@@ -32,13 +31,13 @@ describe Place do
 
   def new_place
     Place.new(place_id: "abc123",
-                 name: "first one",
-                 image_url: "www.yeah.com",
-                 rating: "3.5",
-                 phone_no: "(539) 374-1838",
-                 website: "www.ohyeah.com",
-                 lat: "124.14",
-                 lng: "124.14",
+                  name: "first one",
+             image_url: "www.yeah.com",
+                rating: "3.5",
+              phone_no: "(539) 374-1838",
+               website: "www.ohyeah.com",
+                   lat: "124.14",
+                   lng: "124.14",
                  hours: "big formatting stuff")
   end
 end
