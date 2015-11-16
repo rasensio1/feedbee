@@ -3,10 +3,7 @@ class IdFinder
     if !session[:search_memo]
       session[:search_memo] = Autocompleter.api_results(search_text)
     end
-
-    result = direct_match?(session, search_text) || all_memo_ids(session)
-    result = nil if result.blank?
-    result
+    direct_match?(session, search_text) || all_memo_ids(session)
   end
 
   def self.direct_match?(session, search_text)
