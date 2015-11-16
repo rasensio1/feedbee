@@ -303,3 +303,19 @@
   overflow: auto;
   height: 350px;
 }
+
+/* Search page*/
+.search-container {
+  margin-top: 10em;
+  padding-left: 10em;
+  padding-right: 10em;
+}
+
+#link-block {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#search-header {
+  margin-bottom: 1.5em;
+}

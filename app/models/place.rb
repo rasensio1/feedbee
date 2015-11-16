@@ -34,7 +34,7 @@ class Place < ActiveRecord::Base
   end
 
   def set_slug
-    self.slug = name.parameterize
+    self.slug = name.parameterize + place_id
   end
   
   def self.for_id(place_id)
