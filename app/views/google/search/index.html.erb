@@ -1,6 +1,6 @@
 <div class="search-container">
   <div class="ui header">
-    <h1 id="search-header"> There were multiple search results for ## </h1>
+    <h1 id="search-header"> There were multiple search results for <%= @search_text %>.</h1>
   </div>
     <% @places.each do |place| %>
       <%= link_to place_path(place.slug) do %>
