@@ -9,6 +9,9 @@ RSpec.feature 'user profile' do
         visit profile_path
         assert page.has_content?("Ryan Asensio")
         assert page.has_content?("Following")
+        assert page.has_content?("My Information")
+        assert page.has_content?("Votes")
+        assert page.has_content?("Rank")
       end
     end
   end
