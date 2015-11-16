@@ -6,11 +6,11 @@ RSpec.feature 'searching for a place' do
         visit "/"
 
         page.fill_in 'nav-search',
-          :with => 'tur'
+          :with => 'fresh '
 
         click_button "Go"
 
-        assert_equal 'search', current_path
+        expect(current_path).to eq('/search')
 
         assert page.has_content?("Turing School")
         assert page.has_content?("Turing Software")
