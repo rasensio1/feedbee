@@ -1,29 +1,29 @@
-require 'test_helper'
+require 'rails_helper' 
+describe Comment do
 
-class CommentTest < ActiveSupport::TestCase
-  test "is valid" do
+  it "is valid" do
     assert create_comment.valid?
   end
 
-  test "is invalid without body" do
+  it "is invalid without body" do
     comment = create_comment
     comment.body = nil
     refute comment.valid?
   end
 
-  test "is invalid without sentiment" do
+  it "is invalid without sentiment" do
     comment = create_comment
     comment.sentiment = nil
     refute comment.valid?
   end
 
-  test "is valid is invalid without commentable_id" do
+  it "is valid is invalid without commentable_id" do
     comment = create_comment
     comment.commentable_id = nil
     refute comment.valid?
   end
 
-  test "is valid is invalid without commentable_type" do
+  it "is valid is invalid without commentable_type" do
     comment = create_comment
     comment.commentable_type = nil
     refute comment.valid?

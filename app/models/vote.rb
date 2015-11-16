@@ -14,6 +14,10 @@ class Vote < ActiveRecord::Base
     end
   end
 
+  def self.for_a_comment(comment)
+    where(comment_id: comment.id).sum(:value)
+  end
+
   def self.destroy_old_vote(user, comment_id)
     Vote.where(user_id: user.id).where(comment_id: comment_id).destroy_all
   end

@@ -1,25 +1,24 @@
-require 'test_helper'
-
-class UserTest < ActiveSupport::TestCase
-  test "is valid" do
+require 'rails_helper' 
+describe User do
+  it "is valid" do
     assert new_user.valid?
   end
 
-  test "is invalid without uid" do
+  it "is invalid without uid" do
     user = new_user
     user.uid = nil
 
     refute user.valid?
   end
 
-  test "is invalid without name" do
+  it "is invalid without name" do
     user = new_user
     user.name = nil
 
     refute user.valid?
   end
 
-  test "can follow something" do
+  it "can follow something" do
     turing = create_turing
     user = new_user
     user.user_follows << UserFollow.create(followable_type: "Place", followable_id: turing.id)
@@ -27,7 +26,7 @@ class UserTest < ActiveSupport::TestCase
     assert_equal "Turing School", user.user_follows.first.followable.name
   end
 
-  test "cant double follow something" do
+  it "cant double follow something" do
     turing = create_turing
     user = new_user
     user.save
@@ -38,7 +37,7 @@ class UserTest < ActiveSupport::TestCase
     refute uf2.valid?
   end
 
-  test "cant double vote something" do
+  it "cant double vote something" do
     turing = create_turing
     comment = Comment.create(body: "VOTE ON ME",
                    sentiment: 1,

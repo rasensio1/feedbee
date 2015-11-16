@@ -5,7 +5,7 @@ $( document ).ready(function() {
     console.log("you pressed a key")
      var text = $('input').filter('#nav-search').val() 
 
-    if (text.length > 3) {
+    if (text.length > 2) {
       $.ajax({
         method: "GET",
         url: "/autocomplete.json",

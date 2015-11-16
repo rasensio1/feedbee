@@ -1,6 +1,7 @@
 class Place < ActiveRecord::Base
   before_save :set_slug
   validates :place_id, :name, presence: true
+  validates :place_id, uniqueness: true
 
   has_one :address
   has_many :user_follows, as: :followable
