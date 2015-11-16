@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   end
 
   def votes(comment)
-    Vote.where(comment_id: comment.id).sum(:value)
+    Vote.for_a_comment(comment)
   end
 
   def require_current_user
