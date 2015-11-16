@@ -6,7 +6,7 @@ RSpec.feature 'searching for a place' do
         visit "/"
 
         page.fill_in 'nav-search',
-          :with => 'turing sc'
+          :with => 'tur'
 
         click_button "Go"
 

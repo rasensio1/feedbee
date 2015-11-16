@@ -50,6 +50,7 @@ RSpec.configure do |config|
   def clear_vcrs
     `rm fixtures/cassettes/new.yml`
     `rm fixtures/cassettes/nope.yml`
+    `rm fixtures/cassettes/multiple_results.yml`
   end
 
 end

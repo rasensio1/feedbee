@@ -6,8 +6,8 @@ class Autocompleter
   end
 
   def self.organize(results)
-    results.reduce(Hash.new) do |agg, place|
-      agg[name(place)] = place.place_id
+    results.reduce(Hash.new([].freeze)) do |agg, place|
+      agg[name(place)] += [place.place_id]
       agg
     end
   end
