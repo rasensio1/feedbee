@@ -4,5 +4,6 @@ class Google::SearchController < ApplicationController
     @places = params[:searches].map do |id|
       Place.for_id(id)
     end
+    clear_search_memo
   end
 end

@@ -16,6 +16,7 @@ class PlacesController < ApplicationController
   def show
     @presenter = PlacePresenter.new(current_place)
     @comment = Comment.new()
+    clear_search_memo
   end
 
   private
