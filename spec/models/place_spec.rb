@@ -1,5 +1,4 @@
-require 'rails_helper'
-
+require 'rails_helper' 
 describe Place do
 
   it "is valid" do

@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.feature 'following a place' do
 
   describe "a user", :js => true do
