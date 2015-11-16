@@ -7,7 +7,6 @@ class Address < ActiveRecord::Base
     else
       place.address = Address.new(address_params(raw_place))
     end
-
   end
 
   def self.address_params(raw_place)
