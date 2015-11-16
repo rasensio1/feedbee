@@ -1,4 +1,4 @@
-require 'rails_helper' 
+require 'rails_helper'
 describe UserRank do
   it 'returns the correct rank and message' do
     result = UserRank.rank(101)
