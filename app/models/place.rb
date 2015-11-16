@@ -39,8 +39,8 @@ class Place < ActiveRecord::Base
   
   def self.for_id(place_id)
     @client = GooglePlaces::Client.new(ENV['GOOGLE_KEY'])
-    raw_place = @client.spot(place_id)
-    Place.from_google_api(raw_place)
+    raw_place = @client.spot(place_id) rescue nil #rescue Google notfound error
+    Place.from_google_api(raw_place) if raw_place
   end
 
   def self.slug_for_show(place_id)
