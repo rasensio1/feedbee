@@ -25,5 +25,21 @@ RSpec.feature 'following a place' do
         assert page.has_content?("turing school")
       end
     end
+
+    it "can unfollow a place" do
+      VCR.use_cassette("follow") do
+        visit '/'
+        visit '/places/turing-school-of-software-design'
+
+        click_on("follow")
+        expect(page).to have_content("Following")
+
+        click_on("Following")
+        expect(page).to have_content("Follow")
+
+        visit profile_path
+        expect(page).to_not have_content("turing school")
+      end
+    end
   end
 end
