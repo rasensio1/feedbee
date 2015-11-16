@@ -1,6 +1,6 @@
 class IdFinder
   def self.go(session, search_text)
-    (session[:search_memo][search_text] rescue nil) || session[:search_memo].values
+    (session[:search_memo][search_text] rescue nil) || session[:search_memo].values.flatten
   end
 
   def self.query_for_id(search_text)
