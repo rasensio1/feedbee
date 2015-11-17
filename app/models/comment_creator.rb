@@ -9,8 +9,9 @@ class CommentCreator
   end
 
   def self.destory_last_comment(user)
-    vote = Vote.where(user_id: user.id).order(created_at: :desc).limit(1)
-    Comment.find(vote.id).destory_all
-    vote.destory_all
+    vote = Vote.where(user_id: user.id).order(created_at: :desc).limit(1).first
+    comment_id = vote.comment_id
+    vote.delete
+    Comment.find(comment_id).delete
   end
 end
