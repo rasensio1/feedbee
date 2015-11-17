@@ -2,9 +2,11 @@
     <div id="sidebar" class="four wide column"><!--Sidebar-->
         <div id="sidebar-grid" class="ui grid">
             <div class="sixteen wide center aligned column"><!--Picture-->
-                <div id='picture' class="ui medium circular image">
-                  <%= image_tag(@presenter.photo_url) %>
-                </div>
+              <% if @presenter.photo_url %>
+                  <div id='picture' class="ui medium circular image">
+                      <%= image_tag(@presenter.photo_url) %>
+                  </div>
+              <% end %>
             </div><!--Picture-->
 
             <div class="sixteen wide center aligned column">
