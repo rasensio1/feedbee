@@ -1,46 +1,48 @@
-<div id='main-image' class="ui vertical masthead center aligned segment">
-<h1 id="entry">Find out who's doing it best.</h1>
-    <h1 id="main-line">Help them do it better.</h1>
-        <div class="ui grid">
-            <div class="row">
-                <div class="five wide column"></div>
-                <div class="six wide column">
-                    <div id="main-divider" class="ui divider"></div>
+<% cache("landing-page") do %>
+    <div id='main-image' class="ui vertical masthead center aligned segment">
+        <h1 id="entry">Find out who's doing it best.</h1>
+        <h1 id="main-line">Help them do it better.</h1>
+            <div class="ui grid">
+                <div class="row">
+                    <div class="five wide column"></div>
+                    <div class="six wide column">
+                        <div id="main-divider" class="ui divider"></div>
+                    </div>
                 </div>
             </div>
-        </div>
-    <%= link_to "FeedBee", place_path(slug: "turing-school-of-software-designChIJFSt998R4bIcR0e3QWNXH9D8"), class: "ui blue massive button" %>
-</div>
-
-<div id='works' class="ui one column centered grid ">
-    <div class="sixteen wide center aligned column that-works">
-        <h1 id="that-works">Finally, a review system that works.</h1>
+        <%= link_to "FeedBee", place_path(slug: "turing-school-of-software-designChIJFSt998R4bIcR0e3QWNXH9D8"), class: "ui blue massive button" %>
     </div>
-</div>
 
-<div id="how-to">
-    <div class="ui three column centered grid cards ">
-        <div class="five wide center aligned column">
-            <div class="step-content">
-                  <img class="ui centered small image icon" src="https://s3-us-west-2.amazonaws.com/feedbee/1446460603_Application.png">
-                  <h3>Visit the page for a business, page or product.</h3>
-            </div>
-        </div>
-        <div class="five wide center aligned column">
-            <div class="step-content">
-                <img class="ui centered small image icon" src="https://s3-us-west-2.amazonaws.com/feedbee/1446460620_Message.png">
-                <h3>Agree or Disagree with other comments.</h3>
-            </div>
-        </div>
-
-        <div class="five wide center aligned column">
-            <div class="step-content">
-                <img class="ui centered small image icon" src="https://s3-us-west-2.amazonaws.com/feedbee/1446460642_Mail.png">
-                <h3>Get notified when issues are resolved.</h3>
-            </div>
-        </div>
-        <div class="five wide center aligned column check-it">
-            <%= link_to "Check it out!", place_path(slug: "turing-school-of-software-designChIJFSt998R4bIcR0e3QWNXH9D8"), class: "ui blue huge button" %>
+    <div id='works' class="ui one column centered grid ">
+        <div class="sixteen wide center aligned column that-works">
+            <h1 id="that-works">Finally, a review system that works.</h1>
         </div>
     </div>
-</div>
+
+    <div id="how-to">
+        <div class="ui three column centered grid cards ">
+            <div class="five wide center aligned column">
+                <div class="step-content">
+                      <img class="ui centered small image icon" src="https://s3-us-west-2.amazonaws.com/feedbee/1446460603_Application.png">
+                      <h3>Visit the page for a business, page or product.</h3>
+                </div>
+            </div>
+            <div class="five wide center aligned column">
+                <div class="step-content">
+                    <img class="ui centered small image icon" src="https://s3-us-west-2.amazonaws.com/feedbee/1446460620_Message.png">
+                    <h3>Agree or Disagree with other comments.</h3>
+                </div>
+            </div>
+
+            <div class="five wide center aligned column">
+                <div class="step-content">
+                    <img class="ui centered small image icon" src="https://s3-us-west-2.amazonaws.com/feedbee/1446460642_Mail.png">
+                    <h3>Get notified when issues are resolved.</h3>
+                </div>
+            </div>
+            <div class="five wide center aligned column check-it">
+                <%= link_to "Check it out!", place_path(slug: "turing-school-of-software-designChIJFSt998R4bIcR0e3QWNXH9D8"), class: "ui blue huge button" %>
+            </div>
+        </div>
+    </div>
+<% end %>

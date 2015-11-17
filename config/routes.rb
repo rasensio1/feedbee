@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources 'places', only: [:create]
 
   resources 'comments', only: [:create, :index]
+  get "/comments/destroy", to: "comments#destroy"
 
   post '/follow', to: 'user_follows#create'
   get '/follow', to: 'user_follows#show'

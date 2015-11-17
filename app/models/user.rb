@@ -15,4 +15,11 @@ class User < ActiveRecord::Base
     user.save!
     user
   end
+
+  def last_comment_has_votes?
+    Vote.where(user_id: id)
+        .order(created_at: :desc)
+        .limit(1).first
+        .comment.votes.count > 1
+  end
 end
