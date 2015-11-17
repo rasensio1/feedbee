@@ -7,10 +7,8 @@
 /*
 *= require semantic_ui/definitions/elements/button.less
 *= require semantic_ui/definitions/views/card.less
-*= require semantic_ui/definitions/views/comment.less
 *= require semantic_ui/definitions/modules/dimmer.less
 *= require semantic_ui/definitions/elements/divider.less
-*= require semantic_ui/definitions/modules/embed.less
 *= require semantic_ui/definitions/collections/grid.less
 *= require semantic_ui/definitions/elements/header.less
 *= require semantic_ui/definitions/elements/icon.less
@@ -23,7 +21,6 @@
 *= require semantic_ui/definitions/collections/message.less
 *= require semantic_ui/definitions/modules/modal.less
 *= require semantic_ui/definitions/modules/popup.less
-*= require semantic_ui/definitions/elements/rail.less
 *= require semantic_ui/definitions/globals/reset.less
 *= require semantic_ui/definitions/modules/search.less
 *= require semantic_ui/definitions/elements/segment.less
