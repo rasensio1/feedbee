@@ -3,6 +3,18 @@
   width: 24em;
 }
 
+/* Messages */
+#message-container {
+
+
+  opacity: 0.77;
+  background: #6B70FF;
+ }
+
+#the-message {
+  color: white;
+ } 
+
 /* Landing first section */
 #main-image {
   padding-top: 80px;
