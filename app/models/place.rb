@@ -34,13 +34,17 @@ class Place < ActiveRecord::Base
   end
 
   def set_slug
-    self.slug = name.parameterize
+    self.slug = name.parameterize + place_id
+  end
+  
+  def self.for_id(place_id)
+    @client = GooglePlaces::Client.new(ENV['GOOGLE_KEY'])
+    raw_place = @client.spot(place_id) rescue nil #rescue Google notfound error
+    Place.from_google_api(raw_place) if raw_place
   end
 
   def self.slug_for_show(place_id)
-    @client = GooglePlaces::Client.new(ENV['GOOGLE_KEY'])
-    raw_place = @client.spot(place_id)
-    Place.from_google_api(raw_place).slug
+    for_id(place_id).slug
   end
 
   def self.query_for_id(search_text)

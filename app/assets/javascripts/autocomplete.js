@@ -1,6 +1,5 @@
 $( document ).ready(function() {
 
-
   $( "#nav-search" ).keypress(function() {
     console.log("you pressed a key")
      var text = $('input').filter('#nav-search').val() 

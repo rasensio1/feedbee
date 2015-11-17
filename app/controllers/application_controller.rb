@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
       redirect_to :back
     end
   end
+
+  def clear_search_memo
+    session[:search_memo] = nil
+  end
 end

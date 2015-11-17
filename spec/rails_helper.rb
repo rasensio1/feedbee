@@ -41,15 +41,13 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
-  end
-
-  config.after(:suite) do
     clear_vcrs
   end
 
   def clear_vcrs
     `rm fixtures/cassettes/new.yml`
     `rm fixtures/cassettes/nope.yml`
+    `rm fixtures/cassettes/multiple_results.yml`
   end
 
 end

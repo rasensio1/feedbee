@@ -1,11 +1,24 @@
 class IdFinder
   def self.go(session, search_text)
-    (session[:search_memo][search_text] rescue nil) || query_for_id(search_text)
+    set_search_results(session, search_text)
+    direct_match?(session, search_text) || all_memo_ids(session)
   end
 
-  def self.query_for_id(search_text)
-    @client = GooglePlaces::Client.new(ENV['GOOGLE_KEY'])
-    id = @client.spots_by_query(search_text).first.place_id rescue nil
-    id == "ChIJDTLonUMZe0cRIaabPcSwTtw" ? nil : id
+  def self.direct_match?(session, search_text)
+    res = session[:search_memo][search_text.downcase]
+    res = nil if res.blank?
+    res
+  end
+
+  def self.all_memo_ids(session)
+    res = session[:search_memo].values.flatten
+    res = nil if res.blank?
+    res
+  end
+
+  def self.set_search_results(session, search_text)
+    if !session[:search_memo]
+      session[:search_memo] = Autocompleter.api_results(search_text)
+    end
   end
 end

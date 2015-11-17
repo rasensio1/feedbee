@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/profile', to: 'users#show'
 
   get '/autocomplete', to: 'google/autocomplete#index'
-  get '/map', to: 'static#map'
+  get '/search', to: 'google/search#index'
 
   get "places/:slug", as: 'place', to: 'places#show'
   resources 'places', only: [:create]

@@ -1,0 +1,19 @@
+<div class="search-container">
+  <div class="ui header">
+    <h1 id="search-header"> Your search for "<%=@search_text%>" returned multiple results. Which one did you mean?</h1>
+  </div>
+    <% @places.each do |place| %>
+      <%= link_to place_path(place.slug) do %>
+          <div id="link-block" class="ui segment">
+            <div class="ui header"><%= place.name %></div>
+              <p>
+              <%= place.address.street_no %>
+              <%= place.address.street_name %>,
+              <%= place.address.city %>,
+              <%= place.address.region %> -
+              <%= place.address.postal_code %>
+              </p>
+          </div>
+        <% end %>
+    <% end %>
+</div>
