@@ -13,11 +13,9 @@
 //= require semantic_ui/definitions/modules/modal.js
 //= require semantic_ui/definitions/modules/popup.js
 //= require semantic_ui/definitions/modules/search.js
-//= require semantic_ui/definitions/modules/sidebar.js
 //= require semantic_ui/definitions/globals/site.js
 //= require semantic_ui/definitions/behaviors/state.js
 //= require semantic_ui/definitions/modules/sticky.js
-//= require semantic_ui/definitions/modules/tab.js
 //= require semantic_ui/definitions/modules/transition.js
 //= require semantic_ui/definitions/behaviors/visibility.js
 //= require semantic_ui/definitions/behaviors/visit.js
