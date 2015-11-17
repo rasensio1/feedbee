@@ -1,5 +1,4 @@
-require 'rails_helper'
-
+require 'rails_helper' 
 RSpec.feature 'visiting a place' do
   describe "a user", :js => true do
 
@@ -9,6 +8,8 @@ RSpec.feature 'visiting a place' do
       create_user
       UserFollowsController.any_instance.stub(:current_user).
         and_return(User.first)
+      PlacesController.any_instance.stub(:current_place).
+        and_return(Place.first)
       UsersController.any_instance.stub(:current_user).
         and_return(User.first)
       Comment.stub(:for_a_place).
@@ -24,10 +25,10 @@ RSpec.feature 'visiting a place' do
 
         click_button "Go"
 
-        assert_equal '/places/turing-school-of-software-design',
+        assert_equal '/places/turing-school-of-software-designChIJFSt998R4bIcR0e3QWNXH9D8',
           current_path
 
-        assert page.has_content?("turing school of software design")
+        expect(page).to have_content("turing school of software design")
       end
     end
 
@@ -85,6 +86,8 @@ RSpec.feature 'visiting a place' do
       create_user
       UserFollowsController.any_instance.stub(:current_user).
         and_return(User.first)
+      PlacesController.any_instance.stub(:current_place).
+        and_return(Place.first)
       UsersController.any_instance.stub(:current_user).
         and_return(User.first)
       Comment.stub(:for_a_place).
