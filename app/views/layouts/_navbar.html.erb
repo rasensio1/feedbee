@@ -1,26 +1,26 @@
-<div id="navbar" class="ui fixed inverted large menu">
-    <%= link_to "FeedBee", root_path, class: "large item" %>
-
-    <div class="right menu">
-        <div id='nav-search' class = 'item'>
-            <div class="ui search">
-                <div class="ui icon mini input">
-                    <%= form_tag("/places", method: "post") do %>
-                      <input id="nav-search" name="go_to" class="prompt" type="text" placeholder="Search for something!">
-                      <%= submit_tag "Go", class: "ui mini button" %>
-                    <% end %>
+<% cache("navbar-#{!!current_user}") do %>
+    <div id="navbar" class="ui fixed inverted large menu">
+        <%= link_to "FeedBee", root_path, class: "large item" %>
+        <div class="right menu">
+            <div id='nav-search' class = 'item'>
+                <div class="ui search">
+                    <div class="ui icon mini input">
+                        <%= form_tag("/places", method: "post") do %>
+                          <input id="nav-search" name="go_to" class="prompt" type="text" placeholder="Search for something!">
+                          <%= submit_tag "Go", class: "ui mini button" %>
+                        <% end %>
+                    </div>
+                    <div class="results"></div>
                 </div>
-                <div class="results"></div>
-            </div>
-        </div><!--Search-->
+            </div><!--Search-->
 
-      <% if current_user %>
-        <%= link_to "Hello, #{current_user.name}", profile_path, class: "item" %>
-        <%= link_to "Log Out", logout_path, class: "item" %>
-      <% else %>
-        <%= link_to "Log In with Facebook", login_path, class: "item" %>
-        <a class="item">Sign Up</a>
-      <% end %>
+          <% if current_user %>
+            <%= link_to "Hello, #{current_user.name}", profile_path, class: "item" %>
+            <%= link_to "Log Out", logout_path, class: "item" %>
+          <% else %>
+            <%= link_to "Log In with Facebook", login_path, class: "item" %>
+            <a class="item">Sign Up</a>
+          <% end %>
+        </div>
     </div>
-
-</div>
+<% end %>
