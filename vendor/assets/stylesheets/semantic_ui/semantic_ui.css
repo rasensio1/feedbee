@@ -14,7 +14,6 @@
 *= require semantic_ui/definitions/modules/dropdown.less
 *= require semantic_ui/definitions/modules/embed.less
 *= require semantic_ui/definitions/views/feed.less
-*= require semantic_ui/definitions/collections/form.less
 *= require semantic_ui/definitions/collections/grid.less
 *= require semantic_ui/definitions/elements/header.less
 *= require semantic_ui/definitions/elements/icon.less
@@ -34,9 +33,6 @@
 *= require semantic_ui/definitions/modules/shape.less
 *= require semantic_ui/definitions/modules/sidebar.less
 *= require semantic_ui/definitions/globals/site.less
-*= require semantic_ui/definitions/elements/step.less
 *= require semantic_ui/definitions/modules/sticky.less
-*= require semantic_ui/definitions/modules/tab.less
-*= require semantic_ui/definitions/collections/table.less
 *= require semantic_ui/definitions/modules/transition.less
  */
