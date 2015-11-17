@@ -41,6 +41,7 @@
             <div id="title-container" class="sixteen wide center aligned column">
               <h1 id="title"><%= @presenter.name %></h1>
             </div>
+            <% cache('actions') do %>
 
             <div id="action-container" class="four wide center aligned column">
                 <button id="follow" class="ui teal small basic button">
@@ -60,6 +61,7 @@
                     Message
                 </button>
             </div>
+            <% end %>
             <%= render "layouts/new_comment" %>
             <div id="comments-container" class="sixteen wide column"><!--container-->
                 <div id="shadow-container" class="ui segment">
