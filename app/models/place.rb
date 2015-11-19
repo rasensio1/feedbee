@@ -39,9 +39,8 @@ class Place < ActiveRecord::Base
 
   def self.for_ids(coll)
     coll.map do |id|
-      sleep(0.2)
       for_id(id)
-    end
+    end.compact
   end
 
   def self.for_id(place_id)
