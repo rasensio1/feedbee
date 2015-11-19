@@ -17,6 +17,7 @@ gem 'therubyracer', '~> 0.12.2'
 
 gem 'omniauth-facebook'
 gem "figaro"
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'web-console', '~> 2.0'
