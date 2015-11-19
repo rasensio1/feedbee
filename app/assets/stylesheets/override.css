@@ -174,10 +174,19 @@
   padding-bottom: 40px;
 }
 
+#comments-header {
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+
+}
+
 #shadow-container {
   margin-top: 0px;
   background: #FFFFFF;
   border: 1px solid #979797;
+}
+
+#shadow-container {
 }
 
 #scroll {
