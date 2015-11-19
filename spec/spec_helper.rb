@@ -25,6 +25,18 @@ def create_user
            oauth_token: "xxx11")
 end
 
+def stub_bad_omniauth
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
+    info: {
+      name: "Ryan Asensio"
+    },
+    credentials: {
+      oauth_token: "pizza",
+    }
+  })
+end
+
 def stub_omniauth
   OmniAuth.config.test_mode = true
   OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({

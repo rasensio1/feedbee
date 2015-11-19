@@ -1,22 +1,13 @@
 class PlacesController < ApplicationController
 
   def create
-    if col_place_ids = IdFinder.go(session, params[:go_to])
-      if one_result?(col_place_ids)
-        slug = Place.slug_for_show(col_place_ids.first)
-        if slug
-          redirect_to place_path(slug: slug)
-        else
-          flash['message'] = "Sorry, no results for #{params[:go_to]}. Try something else!"
-          redirect_to root_path 
-        end
-      else
-        redirect_to search_path(searches: col_place_ids, search_text: params[:go_to])
-      end
-    else
-      flash['message'] = "Sorry, no results for #{params[:go_to]}. Try something else!"
-      redirect_to root_path 
-    end
+    place_ids = IdFinder.go(session, params[:go_to])
+    no_results?(place_ids, params[:go_to]) and return
+    multiple_results?(place_ids, params[:go_to]) and return
+
+    slug = Place.slug_for_show(place_ids.first)
+    no_results?(slug, params[:go_to]) and return
+    redirect_to place_path(slug: slug)
   end
 
   def show
@@ -26,6 +17,19 @@ class PlacesController < ApplicationController
   end
 
   private
+
+  def multiple_results?(ids, search_text)
+    if !one_result?(ids)
+      redirect_to search_path(searches: ids, search_text: search_text) and return true
+    end
+  end
+
+  def no_results?(ids, search_text)
+    if !ids
+      flash['message'] = "Sorry, no results for #{search_text}. Try something else!"
+      redirect_to root_path and return true
+    end
+  end
   
   def current_place
     Place.find_by(slug: params[:slug])
