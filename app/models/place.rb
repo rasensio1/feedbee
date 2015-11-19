@@ -50,7 +50,7 @@ class Place < ActiveRecord::Base
   end
 
   def self.slug_for_show(place_id)
-    for_id(place_id).slug
+    for_id(place_id).slug rescue nil
   end
 
   def self.query_for_id(search_text)
