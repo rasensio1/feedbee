@@ -2,7 +2,7 @@
 
 ####Background
 
-I have wanted to build this app for about 7 months and is one of the reasons why I decided to attend the [Turing School](https://turing.io). I chose to build this app for my personal project assignment. 
+I have wanted to build this app for about 7 months and is one of the reasons why I decided to attend the [Turing School](http://turing.io). I chose to build this app for my personal project assignment. 
 
 ####Purpose
 
