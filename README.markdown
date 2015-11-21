@@ -2,7 +2,7 @@
 
 ####Background
 
-I have wanted to build this app for about 7 months and is one of the reasons why I decided to attend the [Turing School](http://turing.io). I chose to build this app for my personal project assignment. 
+Wouldn't it be great if review websites like Yelp broke down reviews into the specific good and bad things about a place? Users could then agree or disagree with these comments, and businesses could see what they're doing well, and what they could improve.
 
 ####Purpose
 
