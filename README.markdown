@@ -16,5 +16,8 @@ To demonstrate my ability to turn an idea into a product.
   * UI/UX
   * Time management(built in two weeks)
   * Self direction
+  
+####Oops!
+ The end goal of this app is to be able to review products, as well as places. However, the product side has not been implemented yet. This is why there is a polymorphic relationship that isn't being utilized.
 
 ####[Heroku](https://feedbee1.herokuapp.com)
